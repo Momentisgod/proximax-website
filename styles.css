@@ -1873,4 +1873,109 @@ ul {
     .direct-contact-column {
         padding: 25px;
     }
+
+}
+
+/* --- Legal Pages Hero Section --- */
+.page-hero-section.legal-hero {
+    background-color: #0f3e5f; /* Your dark brand blue */
+    /* You can add a subtle background image here if desired */
+    /* background-image: url('path/to/legal-hero-image.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- Legal Content Section --- */
+.legal-content-section {
+    padding: 80px 0;
+    background-color: #fff; /* White background */
+    color: #333; /* Dark text */
+}
+
+.legal-content-section .container {
+    padding: 20px 25px;
+}
+
+.legal-content-section .last-updated {
+    font-size: 0.9em;
+    color: #777;
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.legal-content-section h3 {
+    font-size: 1.8em;
+    color: #0f3e5f; /* Dark brand blue */
+    margin-top: 40px;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.legal-content-section h3::after { /* Small underline for headings */
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #007bff; /* Light brand blue */
+}
+
+.legal-content-section p {
+    font-size: 1em;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.legal-content-section ul {
+    list-style: disc;
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+.legal-content-section ul li {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.legal-content-section ul li strong {
+    color: #333;
+}
+
+.legal-content-section a {
+    color: #007bff; /* Link color */
+    text-decoration: underline;
+}
+
+.legal-content-section a:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+/* --- Responsive Adjustments for Legal Pages --- */
+@media (max-width: 768px) {
+    /* Hero section inherits responsive styles */
+    .legal-content-section {
+        padding: 60px 0;
+    }
+    .legal-content-section .last-updated {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .legal-content-section h3 {
+        font-size: 1.5em;
+        margin-top: 30px;
+        text-align: center; /* Center heading on mobile */
+    }
+    .legal-content-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .legal-content-section p,
+    .legal-content-section ul li {
+        font-size: 0.95em;
+    }
 }
