@@ -1,0 +1,1876 @@
+/* Basic Resets & Global Styles (keep as is) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', Arial, sans-serif; /* Applied imported font */
+    line-height: 1.6;
+    color: #fff; /* Default text color for the hero section */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    background-color: #222; /* Add a subtle background color for areas outside the video, if any, or for scroll */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- Main Header / Navigation Bar --- */
+.main-header {
+    position: fixed; /* Stays at the top when scrolling */
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center; /* Center the container horizontally */
+    padding: 20px 0; /* Vertical padding around the container */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.header-container {
+    /* REMOVED: background-color: #333; */
+    /* REMOVED: border-radius: 12px; */
+    /* REMOVED: box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); */
+
+    padding: 0 25px; /* Internal horizontal padding for elements, vertical padding comes from .main-header */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribute items */
+    max-width: 1000px; /* Max width like super.work */
+    width: 90%; /* Responsive width */
+
+    /* Optional: Apply backdrop-filter directly here for subtle blur if desired, like super.work */
+    /* background-color: rgba(0, 0, 0, 0.1); /* Very subtle transparent background if backdrop-filter isn't enough */
+
+    backdrop-filter: blur(5px); /* Adds a subtle blur to content behind the nav elements */
+    -webkit-backdrop-filter: blur(5px); /* For Safari compatibility */
+
+    /* Ensure height is determined by content, or explicitly set */
+    min-height: 40px; /* Minimum height for better click targets */
+}
+
+/* Logo Styling - Keep as is (should be light colored) */
+.logo a {
+    text-decoration: none;
+    padding-right: 20px;
+}
+
+.logo img {
+    height: 40px; /* Adjust this value to control your logo's height */
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+/* Navigation Links (Keep as is - white text) */
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.main-nav ul li {
+    margin: 0 15px;
+}
+
+.main-nav ul li a {
+    color: #ccc; /* Lighter grey for regular links */
+    text-decoration: none;
+    font-size: 0.95em;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+/* Navigation Links - UPDATED HOVER COLOR */
+.main-nav ul li a:hover {
+    color: #0f3e5f; /* Changed from #000000 (black) to a visible blue on hover */
+}
+
+/* Button Styling (Keep as is) */
+.nav-buttons { /* Changed from .nav-button to .nav-buttons to match HTML */
+    margin-left: 25px;
+    display: flex; /* Ensure buttons are side-by-side if multiple */
+    gap: 10px; /* Space between buttons */
+}
+
+.btn {
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-outline { /* If you use an outline button here */
+    border: 1px solid #fff; /* White outline */
+    color: #fff;
+    background-color: transparent;
+}
+
+.btn-filled:hover {
+    background-color: #0056b3;
+}
+
+.btn-filled {
+    background-color: #0f3e5f; /* Changed to a standard blue for better contrast */
+    color: #fff;
+    border: none;
+}
+
+.btn-filled:hover {
+    background-color: #0056b3;
+}
+
+.btn-filled.large {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    margin-top: 30px;
+}
+
+/* Hamburger Menu (Keep as is) */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 4px;
+    margin-left: 20px;
+}
+
+.hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+/* --- Hero Section with Video Background (Keep as is) --- */
+.hero-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Darker overlay for text readability */
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* --- Responsive Design (Keep as is) --- */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 15px 20px; /* Adjust padding for mobile header */
+    }
+
+    .main-nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 20px 0;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        border-radius: 0 0 12px 12px; /* Add border-radius back for mobile menu dropdown */
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .main-nav ul li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+    .main-nav ul li a {
+        padding: 10px 0;
+        display: block;
+    }
+
+    .nav-buttons { /* Ensure this targets the correct element */
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 20px 0;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        border-radius: 0 0 12px 12px; /* Add border-radius back for mobile menu dropdown */
+    }
+
+    .nav-buttons .btn {
+        width: calc(100% - 40px);
+        margin: 0 20px;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .main-nav.active, .nav-buttons.active {
+        display: flex;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .btn-filled.large {
+        font-size: 1em;
+        padding: 12px 25px;
+    }
+}
+
+/* --- Partners Section --- */
+.partners-section {
+    padding: 80px 0; /* Vertical padding for the section */
+    background-color: #fff; /* White background as seen in video */
+    text-align: center; /* Center the title */
+    overflow: hidden; /* Hide anything that spills out, crucial for the horizontal scroll */
+}
+
+.partners-header {
+    margin-bottom: 50px; /* Space below the title */
+}
+
+.partners-header h2 {
+    font-size: 2.5em; /* Adjust title font size */
+    color: #333; /* Dark grey text for title */
+    margin-bottom: 10px; /* Space between title and underline */
+}
+
+.partners-header .underline {
+    width: 60px; /* Width of the underline */
+    height: 3px; /* Thickness of the underline */
+    background-color: #007bff; /* Use a color matching your brand or super.work's blue */
+    margin: 0 auto; /* Center the underline */
+}
+
+.partners-logos-container {
+    width: 100%;
+    /* overflow-x: auto;  Enable manual horizontal scrolling */
+    /* white-space: nowrap; */ /* Keep logos on one line for manual scroll */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari, Opera */
+.partners-logos-container::-webkit-scrollbar {
+    display: none;
+}
+
+.partners-logos {
+    display: flex; /* Arrange logos horizontally */
+    align-items: center;
+    justify-content: space-around; /* Distribute space among logos */
+    min-width: fit-content; /* Ensure container expands to fit all logos */
+    padding: 20px 0; /* Padding around logos */
+
+    /* --- For Continuous Automatic Scroll (like a marquee) --- */
+    animation: scroll-logos 40s linear infinite; /* Adjust duration based on number of logos */
+    animation-play-state: running; /* Start animation automatically */
+}
+
+.partners-logos:hover {
+    animation-play-state: paused; /* Pause animation on hover */
+}
+
+.partners-logos img {
+    height: 60px; /* Uniform height for logos */
+    width: auto; /* Maintain aspect ratio */
+    margin: 0 40px; /* Space between logos */
+    opacity: 0.7; /* Slightly faded, like in the video */
+    transition: opacity 0.3s ease; /* Smooth hover effect */
+
+    /* Grayscale effect as seen in the video */
+    filter: grayscale(100%); /* Make logos grayscale */
+    -webkit-filter: grayscale(100%); /* For Safari */
+}
+
+.partners-logos img:hover {
+    opacity: 1; /* Full color on hover */
+    filter: grayscale(0%); /* Full color on hover */
+    -webkit-filter: grayscale(0%);
+}
+
+/* --- Keyframe for Continuous Automatic Scroll --- */
+@keyframes scroll-logos {
+    0% { transform: translateX(0); } /* Start at original position */
+    100% { transform: translateX(-50%); } /* Scroll exactly half way (because logos are duplicated) */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .partners-section {
+        padding: 50px 0;
+    }
+
+    .partners-header h2 {
+        font-size: 2em;
+    }
+
+    .partners-logos {
+        animation-duration: 25s; /* Faster scroll on smaller screens */
+    }
+
+    .partners-logos img {
+        height: 50px; /* Smaller logos on mobile */
+        margin: 0 25px;
+    }
+}
+
+/* --- Vision, Mission, Core Values Section --- */
+.vmc-section {
+    padding: 80px 0; /* Vertical padding */
+    background-color: #fff; /* White background for this section */
+    color: #333; /* Dark text color */
+}
+
+.vmc-section .container {
+    /* Inherits max-width, margin from global .container */
+    padding: 20px 25px; /* Adjust padding as needed for this section */
+}
+
+.vmc-block {
+    display: flex; /* Use flexbox for two-column layout */
+    align-items: center; /* Vertically align items */
+    margin-bottom: 60px; /* Space between blocks */
+    gap: 40px; /* Space between text and image columns */
+}
+
+/* Reverse order for Mission block to match screenshot */
+.vmc-block.mission-block {
+    flex-direction: row-reverse;
+}
+
+.vmc-text-content {
+    flex: 1; /* Allows text content to grow */
+    max-width: 50%; /* Limits text width */
+    padding: 0 20px; /* Internal padding */
+}
+
+.vmc-image-content {
+    flex: 1; /* Allows image content to grow */
+    max-width: 50%; /* Limits image width */
+    position: relative; /* For absolute positioning of circle icon */
+    display: flex; /* For centering image if it's smaller */
+    justify-content: center;
+    align-items: center;
+}
+
+.vmc-title {
+    font-size: 1.2em; /* Smaller title like in the example */
+    font-weight: 600;
+    color: #0f3e5f; /* Use your brand blue */
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.vmc-text-content p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 0;
+    color: #555;
+}
+
+/* Core Values Specific Styling */
+.core-values-block .vmc-text-content ul {
+    list-style: none; /* Remove default bullet */
+    padding-left: 0;
+}
+
+.core-values-block .vmc-text-content ul li {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px; /* Space for custom bullet */
+    color: #555;
+}
+
+.core-values-block .vmc-text-content ul li::before {
+    content: '•'; /* Custom bullet point */
+    color: #ff5722; /* Your brand orange for bullet */
+    font-size: 1.2em;
+    position: absolute;
+    left: 0;
+    top: 0;
+    line-height: inherit;
+}
+
+.core-values-block .vmc-text-content ul li strong {
+    color: #333; /* Make bold text darker */
+}
+
+/* --- Image and Icon Styling --- */
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 60%; /* Aspect ratio: 60% of width for height */
+    overflow: hidden;
+    border-radius: 12px; /* Rounded corners for the image block */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.vmc-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image covers the area */
+    filter: grayscale(100%); /* Apply grayscale filter */
+    -webkit-filter: grayscale(100%); /* For Safari */
+}
+
+/* Icon Circle Styling - positioned over the image */
+.icon-circle {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for perfect centering */
+    width: 120px; /* Size of the circle */
+    height: 120px;
+    background-color: #0f3e5f; /* Your brand blue for the circle background */
+    border-radius: 50%; /* Makes it a circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5; /* Ensure it's above the image */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.icon-circle img {
+    height: 60px; /* Size of the icon inside the circle */
+    width: 60px;
+    filter: brightness(0) invert(1); /* Makes SVG icons white */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) { /* Adjust for medium screens */
+    .vmc-block {
+        flex-direction: column; /* Stack columns on smaller screens */
+        text-align: center;
+    }
+
+    .vmc-block.mission-block {
+        flex-direction: column; /* Ensure mission block also stacks */
+    }
+
+    .vmc-text-content,
+    .vmc-image-content {
+        max-width: 100%; /* Take full width */
+        padding: 0;
+    }
+
+    .vmc-image-content {
+        margin-bottom: 30px; /* Add space below image when stacked */
+    }
+
+    .vmc-title {
+        text-align: center;
+        margin-top: 20px; /* Space above title when stacked */
+    }
+
+    .vmc-text-content p {
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 768px) { /* Adjust for mobile screens */
+    .vmc-section {
+        padding: 60px 0;
+    }
+    .vmc-block {
+        margin-bottom: 40px;
+        gap: 20px;
+    }
+    .vmc-title {
+        font-size: 1.1em;
+    }
+    .vmc-text-content p {
+        font-size: 0.95em;
+    }
+    .icon-circle {
+        width: 100px;
+        height: 100px;
+    }
+    .icon-circle img {
+        height: 50px;
+        width: 50px;
+    }
+}
+
+/* --- What We Do Section --- */
+.what-we-do-section {
+    padding: 80px 0; /* Vertical padding */
+    background-color: #fff; /* White background for this section */
+    color: #333; /* Dark text color for readability */
+    text-align: center; /* Center section title and intro paragraph */
+}
+
+.what-we-do-section .container {
+    /* Inherits max-width, margin from global .container */
+    padding: 20px 25px; /* Adjust padding as needed for this section */
+}
+
+.what-we-do-section .section-title {
+    font-size: 2.8em;
+    color: #0f3e5f; /* Use your brand's accent color */
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Lighter shadow on white background */
+}
+
+.what-we-do-section .intro-paragraph {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto 60px auto; /* Space below intro paragraph */
+    line-height: 1.8;
+    color: #555;
+}
+
+/* --- Service Blocks Layout (Image Left, Text Right) --- */
+.service-block {
+    display: flex; /* Use flexbox for two-column layout */
+    align-items: center; /* Vertically align items */
+    margin-bottom: 60px; /* Space between service blocks */
+    gap: 50px; /* Space between image and text columns */
+    text-align: left; /* Reset text alignment within the block */
+}
+
+.service-image-content {
+    flex: 1; /* Allows image column to grow */
+    max-width: 50%; /* Limits image column width */
+}
+
+.service-text-content {
+    flex: 1; /* Allows text column to grow */
+    max-width: 50%; /* Limits text column width */
+}
+
+.service-block:nth-child(even) { /* For alternating layout (text left, image right) - if you want it to alternate */
+    /* flex-direction: row-reverse; */ /* Commented out to keep image left for all blocks */
+}
+
+.service-title {
+    font-size: 2em; /* Title of each service */
+    color: #0f3e5f; /* Your brand blue */
+    margin-bottom: 15px;
+}
+
+.service-text-content p {
+    font-size: 1em;
+    line-height: 1.7;
+    color: #666;
+}
+
+/* --- Image Styling within Service Blocks --- */
+.service-image-content .image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 65%; /* Aspect ratio (e.g., 16:9 would be 56.25%, adjust as needed) */
+    overflow: hidden;
+    border-radius: 12px; /* Rounded corners for the image block */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+}
+
+.service-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image covers the area */
+    display: block; /* Remove extra space below image */
+}
+
+/* --- Responsive Adjustments for What We Do Section --- */
+@media (max-width: 992px) { /* Adjust for medium screens */
+    .service-block {
+        flex-direction: column; /* Stack columns on smaller screens */
+        text-align: center; /* Center text when stacked */
+        gap: 30px;
+    }
+
+    .service-image-content,
+    .service-text-content {
+        max-width: 100%; /* Take full width */
+    }
+
+    .service-image-content {
+        margin-bottom: 20px; /* Space below image when stacked */
+    }
+
+    .service-title {
+        text-align: center; /* Ensure title is centered when stacked */
+        font-size: 1.8em;
+    }
+    .service-text-content p {
+        text-align: center; /* Ensure paragraph is centered when stacked */
+    }
+}
+
+@media (max-width: 768px) { /* Adjust for mobile screens */
+    .what-we-do-section {
+        padding: 60px 0;
+    }
+    .what-we-do-section .section-title {
+        font-size: 2.2em;
+    }
+    .what-we-do-section .intro-paragraph {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+    .service-block {
+        margin-bottom: 40px;
+    }
+    .service-title {
+        font-size: 1.5em;
+    }
+    .service-text-content p {
+        font-size: 0.9em;
+    }
+}
+
+/* --- Client Testimonials / Success Stories Section --- */
+.testimonials-section {
+    padding: 80px 0;
+    background-color: #f8f8f8; /* Light background for contrast */
+    color: #333; /* Dark text for readability */
+    text-align: center;
+}
+
+.testimonials-section .container {
+    /* Inherits max-width, margin from global .container */
+    padding: 20px 25px; /* Adjust padding as needed */
+}
+
+.testimonials-section .section-title {
+    font-size: 2.8em;
+    color: #0f3e5f; /* Your dark brand blue */
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Lighter shadow */
+}
+
+.testimonials-section .intro-paragraph {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* --- Testimonial Grid --- */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid: at least 300px wide, max 1fr */
+    gap: 30px; /* Space between cards */
+    margin-bottom: 50px; /* Space below grid and before CTA button */
+}
+
+.testimonial-card {
+    background-color: #fff; /* White background for individual cards */
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes client info to bottom */
+    text-align: left; /* Text aligns left within card */
+}
+
+.testimonial-card .quote-icon {
+    font-family: serif; /* Stylized quote character */
+    font-size: 4em;
+    color: #ddd; /* Light grey for the decorative quote */
+    line-height: 0.8;
+    margin-bottom: 15px;
+    float: left; /* Floats the quote icon */
+    margin-right: 5px;
+}
+
+.testimonial-card .quote {
+    font-size: 1.1em;
+    font-style: italic; /* Italicize the quote text */
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 25px;
+    clear: both; /* Clear float from quote-icon */
+}
+
+.testimonial-card .client-info {
+    display: flex;
+    align-items: center;
+    margin-top: auto; /* Push client-info to the bottom of the flex card */
+    padding-top: 15px; /* Space above client info */
+    border-top: 1px solid #eee; /* Subtle separator */
+}
+
+.testimonial-card .client-avatar {
+    width: 60px; /* Size of avatar */
+    height: 60px;
+    border-radius: 50%; /* Make it circular */
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid #007bff; /* Small border with your brand blue */
+}
+
+.testimonial-card .client-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-card .client-name {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.testimonial-card .client-title {
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* --- CTA Button (re-using existing btn-outline styles) --- */
+.testimonials-cta {
+    margin-top: 20px; /* Space above the button */
+    display: inline-block; /* Ensure button can be centered */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .testimonials-section {
+        padding: 60px 0;
+    }
+    .testimonials-section .section-title {
+        font-size: 2.2em;
+    }
+    .testimonials-section .intro-paragraph {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+    .testimonial-grid {
+        grid-template-columns: 1fr; /* Stack cards on mobile */
+    }
+    .testimonial-card {
+        padding: 25px;
+    }
+    .testimonial-card .quote-icon {
+        font-size: 3em;
+    }
+    .testimonial-card .quote {
+        font-size: 1em;
+    }
+}
+
+/* --- Final Call to Action Section --- */
+.final-cta-section {
+    padding: 100px 0; /* Generous vertical padding */
+    background-color: #0f3e5f; /* Your dark brand blue background */
+    color: #fff; /* White text for readability */
+    text-align: center;
+}
+
+.final-cta-section .container {
+    /* Inherits max-width, margin from global .container */
+    padding: 20px 25px; /* Adjust padding as needed */
+}
+
+.cta-title {
+    font-size: 3.2em; /* Prominent title */
+    color: #fff; /* White text */
+    margin-bottom: 25px;
+    line-height: 1.2;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Subtle text shadow */
+}
+
+.cta-text {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto 40px auto; /* Center text and space below it */
+    line-height: 1.7;
+    color: #e0e0e0; /* Slightly off-white for body text */
+}
+
+.final-cta-button {
+    /* Reuses .btn-filled.large styles */
+    /* Add any specific overrides here if needed */
+    display: inline-block; /* Ensure it behaves like a block for margin auto */
+}
+
+/* --- Responsive Adjustments for Final CTA --- */
+@media (max-width: 992px) {
+    .final-cta-section {
+        padding: 80px 0;
+    }
+    .cta-title {
+        font-size: 2.5em;
+    }
+    .cta-text {
+        font-size: 1.1em;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .final-cta-section {
+        padding: 60px 0;
+    }
+    .cta-title {
+        font-size: 2em;
+    }
+    .cta-text {
+        font-size: 1em;
+        margin-bottom: 25px;
+    }
+    .final-cta-button {
+        /* If you need to make the button full width on mobile */
+        /* width: calc(100% - 40px); */
+        /* margin: 0 auto; */
+    }
+}
+
+/* --- Footer Section --- */
+.main-footer {
+    padding: 60px 0 20px 0; /* Top, Right, Bottom, Left padding */
+    background-color: #111; /* Very dark background */
+    color: #ccc; /* Light grey text */
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+.main-footer .container {
+    /* Inherits max-width, margin from global .container */
+    padding: 0 25px; /* Horizontal padding for content */
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 30px; /* Space between grid items */
+    margin-bottom: 40px; /* Space above the bottom copyright section */
+    text-align: left; /* Align text within columns */
+}
+
+.footer-logo img {
+    height: 50px; /* Adjust logo height in footer */
+    max-width: 100%;
+    margin-bottom: 20px;
+    filter: brightness(0) invert(1); /* Makes logo white if it's black/dark on transparent background */
+}
+
+.footer-grid h3 {
+    font-size: 1.2em;
+    color: #fff; /* White headings */
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px; /* Space below heading for underline */
+}
+
+.footer-grid h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px; /* Underline width */
+    height: 2px; /* Underline thickness */
+    background-color: #007bff; /* Your brand blue underline */
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #fff;
+}
+
+.footer-contact p {
+    margin-bottom: 10px;
+}
+
+.footer-contact a {
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+    color: #fff;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px; /* Space between icons */
+    margin-top: 15px;
+}
+
+.social-icons a img {
+    height: 30px; /* Size of social icons */
+    width: 30px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.social-icons a img:hover {
+    opacity: 1;
+}
+
+.footer-bottom {
+    border-top: 1px solid #333; /* Separator line */
+    padding-top: 20px;
+    text-align: center;
+    color: #888; /* Slightly darker grey for copyright text */
+    font-size: 0.85em;
+}
+
+/* --- Responsive Adjustments for Footer --- */
+@media (max-width: 768px) {
+    .main-footer {
+        padding: 40px 0 15px 0;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr; /* Stack columns on mobile */
+        text-align: center; /* Center text when stacked */
+        margin-bottom: 30px;
+    }
+    .footer-grid h3 {
+        text-align: center;
+    }
+    .footer-grid h3::after {
+        left: 50%; /* Center underline on mobile */
+        transform: translateX(-50%);
+    }
+    .footer-about,
+    .footer-links,
+    .footer-contact,
+    .footer-social {
+        margin-bottom: 30px; /* Space between stacked columns */
+    }
+    .social-icons {
+        justify-content: center; /* Center social icons */
+    }
+    .footer-bottom {
+        padding-top: 15px;
+    }
+}
+
+/* --- Services Page Hero Section --- */
+.page-hero-section {
+    position: relative;
+    width: 100vw;
+    height: 40vh; /* Shorter hero for internal pages */
+    background-color: #0f3e5f; /* Your dark brand blue */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    color: #fff;
+    padding-top: 60px; /* Space for fixed header */
+}
+
+.page-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* Slight overlay */
+    z-index: 0;
+}
+
+.page-hero-section h1 {
+    position: relative;
+    z-index: 1;
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.page-hero-section p {
+    position: relative;
+    z-index: 1;
+    font-size: 1.2em;
+    max-width: 700px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* --- Main Services Detail Section --- */
+.main-services-detail-section {
+    padding: 80px 0;
+    background-color: #f8f8f8; /* Light background for contrast */
+    color: #333;
+}
+
+.main-services-detail-section .container {
+    /* Inherits max-width, margin from global .container */
+    padding: 20px 25px;
+}
+
+.main-services-detail-section .section-title {
+    font-size: 2.8em;
+    color: #0f3e5f; /* Dark brand blue */
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.main-services-detail-section .intro-paragraph {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    line-height: 1.8;
+    color: #555;
+    text-align: center;
+}
+
+/* --- Service Detail Blocks (Image Left, Text Right) --- */
+.service-detail-block {
+    display: flex;
+    align-items: center;
+    margin-bottom: 80px; /* More space between detailed blocks */
+    gap: 60px; /* More space between image and text */
+    text-align: left;
+}
+
+/* Reverse layout for alternating blocks (Text Left, Image Right) */
+.service-detail-block.reverse-layout {
+    flex-direction: row-reverse;
+}
+
+.service-detail-image-content {
+    flex: 1;
+    max-width: 50%;
+}
+
+.service-detail-text-content {
+    flex: 1;
+    max-width: 50%;
+}
+
+.service-detail-title {
+    font-size: 2.2em;
+    color: #007bff; /* Your light brand blue */
+    margin-bottom: 20px;
+}
+
+.service-detail-text-content p {
+    font-size: 1em;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.service-detail-text-content ul {
+    list-style: none; /* Remove default bullet */
+    padding-left: 0;
+    margin-bottom: 30px;
+}
+
+.service-detail-text-content ul li {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 30px; /* Space for custom icon/bullet */
+    color: #444;
+}
+
+.service-detail-text-content ul li::before {
+    content: '✓'; /* Checkmark icon, or use a font icon */
+    color: #ff5722; /* Your brand orange for the checkmark */
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* --- Image Styling within Service Detail Blocks --- */
+.service-detail-image-content .image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 65%; /* Aspect ratio */
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+}
+
+.service-detail-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Responsive Adjustments for Services Page --- */
+@media (max-width: 992px) {
+    .page-hero-section h1 {
+        font-size: 2.5em;
+    }
+    .page-hero-section p {
+        font-size: 1em;
+    }
+
+    .service-detail-block {
+        flex-direction: column; /* Stack columns on smaller screens */
+        text-align: center;
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+
+    .service-detail-block.reverse-layout {
+        flex-direction: column; /* Ensure stacked order */
+    }
+
+    .service-detail-image-content,
+    .service-detail-text-content {
+        max-width: 100%;
+    }
+
+    .service-detail-image-content {
+        margin-bottom: 20px;
+    }
+
+    .service-detail-title {
+        text-align: center;
+        font-size: 1.8em;
+    }
+    .service-detail-text-content p {
+        text-align: center;
+    }
+    .service-detail-text-content ul {
+        margin: 0 auto 20px auto; /* Center list */
+        text-align: left; /* Keep text aligned left within list item */
+        max-width: 400px; /* Constrain list width for readability */
+    }
+}
+
+@media (max-width: 768px) {
+    .page-hero-section {
+        height: 30vh;
+        padding-top: 40px;
+    }
+    .page-hero-section h1 {
+        font-size: 2em;
+    }
+    .page-hero-section p {
+        font-size: 0.9em;
+    }
+
+    .main-services-detail-section {
+        padding: 60px 0;
+    }
+    .main-services-detail-section .section-title {
+        font-size: 2.2em;
+        margin-bottom: 40px;
+    }
+    .main-services-detail-section .intro-paragraph {
+        font-size: 1em;
+    }
+    .service-detail-block {
+        margin-bottom: 40px;
+        gap: 20px;
+    }
+    .service-detail-title {
+        font-size: 1.5em;
+    }
+    .service-detail-text-content p {
+        font-size: 0.9em;
+    }
+    .service-detail-text-content ul li {
+        font-size: 0.9em;
+    }
+}
+
+/* --- Partners Page Hero Section (Similar to Services Page Hero) --- */
+.page-hero-section {
+    position: relative;
+    width: 100vw;
+    height: 40vh; /* Shorter hero for internal pages */
+    background-color: #0f3e5f; /* Your dark brand blue */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    color: #fff;
+    padding-top: 60px; /* Space for fixed header */
+}
+
+.page-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* Slight overlay */
+    z-index: 0;
+}
+
+.page-hero-section h1 {
+    position: relative;
+    z-index: 1;
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.page-hero-section p {
+    position: relative;
+    z-index: 1;
+    font-size: 1.2em;
+    max-width: 700px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* --- Main Partners Detail Section --- */
+.main-partners-detail-section {
+    padding: 80px 0;
+    background-color: #f8f8f8; /* Light background */
+    color: #333;
+}
+
+.main-partners-detail-section .container {
+    /* Inherits max-width, margin from global .container */
+    padding: 20px 25px;
+}
+
+.main-partners-detail-section .intro-paragraph {
+    font-size: 1.1em;
+    max-width: 900px;
+    margin: 0 auto 60px auto;
+    line-height: 1.8;
+    color: #555;
+    text-align: center;
+}
+
+/* --- Partner Category Block --- */
+.partner-category-block {
+    margin-bottom: 70px; /* Space between partner categories */
+}
+
+.category-title {
+    font-size: 2.5em;
+    color: #0f3e5f; /* Dark brand blue */
+    margin-bottom: 15px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.category-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 3px;
+    background-color: #007bff; /* Light brand blue underline */
+}
+
+.category-description {
+    font-size: 1em;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    line-height: 1.7;
+    color: #666;
+    text-align: center;
+}
+
+/* --- Partner Grid --- */
+.partner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid for partners */
+    gap: 30px; /* Space between partner cards */
+}
+
+.partner-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Lighter shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.partner-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.partner-logo-detail {
+    max-height: 80px; /* Max height for logos */
+    max-width: 80%; /* Ensure logos fit */
+    object-fit: contain; /* Maintain aspect ratio */
+    margin-bottom: 15px;
+}
+
+.partner-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.partner-description {
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: #777;
+}
+
+/* --- Final Call to Action for Partnerships --- */
+.partner-cta {
+    background-color: #007bff; /* Your light brand blue */
+    color: #fff;
+    padding: 50px 30px;
+    border-radius: 12px;
+    margin-top: 50px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.partner-cta h3 {
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.partner-cta p {
+    font-size: 1.1em;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    color: #e0e0e0;
+}
+
+/* --- Responsive Adjustments for Partnerships Page --- */
+@media (max-width: 992px) {
+    .page-hero-section h1 {
+        font-size: 2.5em;
+    }
+    .page-hero-section p {
+        font-size: 1em;
+    }
+
+    .main-partners-detail-section {
+        padding: 60px 0;
+    }
+
+    .category-title {
+        font-size: 2em;
+    }
+
+    .partner-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust grid columns */
+    }
+
+    .partner-cta h3 {
+        font-size: 1.8em;
+    }
+    .partner-cta p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-hero-section {
+        height: 30vh;
+        padding-top: 40px;
+    }
+    .page-hero-section h1 {
+        font-size: 2em;
+    }
+    .page-hero-section p {
+        font-size: 0.9em;
+    }
+
+    .main-partners-detail-section .intro-paragraph {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+
+    .partner-category-block {
+        margin-bottom: 50px;
+    }
+
+    .category-title {
+        font-size: 1.8em;
+    }
+
+    .partner-grid {
+        grid-template-columns: 1fr; /* Stack cards on mobile */
+    }
+
+    .partner-card {
+        padding: 20px;
+    }
+
+    .partner-cta {
+        padding: 40px 20px;
+    }
+    .partner-cta h3 {
+        font-size: 1.5em;
+    }
+    .partner-cta p {
+        font-size: 0.9em;
+    }
+}
+
+/* --- About Us Page Hero Section (Similar to Services Page Hero) --- */
+/* You might want a slightly different background image or color for this hero if desired */
+.page-hero-section.about-hero {
+    background-color: #0f3e5f; /* Or a different dark brand color */
+    /* background-image: url('path/to/about-hero-image.jpg'); */ /* Optional: specific background image */
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- Our Story / Introduction Section --- */
+.our-story-section {
+    padding: 80px 0;
+    background-color: #fff; /* White background */
+    color: #333;
+}
+
+.our-story-section .container {
+    padding: 20px 25px;
+}
+
+.story-content-grid {
+    display: flex;
+    align-items: center;
+    gap: 60px; /* Space between text and image */
+}
+
+.story-text {
+    flex: 1;
+    max-width: 55%; /* Text takes a bit more width */
+}
+
+.section-title-alt { /* For a slightly different title style if desired */
+    font-size: 2.5em;
+    color: #0f3e5f; /* Dark brand blue */
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.story-text p {
+    font-size: 1.05em;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.story-image {
+    flex: 1;
+    max-width: 45%; /* Image takes less width */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    height: auto; /* Ensure image scales */
+    display: block; /* Remove extra space below image */
+}
+
+.story-main-image { /* For the actual image inside .story-image */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Our Team Section --- */
+.our-team-section {
+    padding: 80px 0;
+    background-color: #f0f0f0; /* Light grey background */
+    color: #333;
+    text-align: center;
+}
+
+.our-team-section .section-title { /* Reuse existing section-title style */
+    font-size: 2.8em;
+    color: #0f3e5f;
+    margin-bottom: 20px;
+}
+
+.our-team-section .intro-paragraph { /* Reuse existing intro-paragraph style */
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    line-height: 1.8;
+    color: #555;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
+    gap: 30px;
+}
+
+.team-member-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.member-photo {
+    width: 150px; /* Size of team member photo */
+    height: 150px;
+    border-radius: 50%; /* Circular photo */
+    object-fit: cover;
+    margin: 0 auto 15px auto;
+    border: 3px solid #007bff; /* Accent border */
+}
+
+.member-name {
+    font-size: 1.4em;
+    color: #0f3e5f; /* Dark brand blue */
+    margin-bottom: 5px;
+}
+
+.member-title {
+    font-size: 0.95em;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.member-bio {
+    font-size: 0.9em;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* --- Responsive Adjustments for About Us Page --- */
+@media (max-width: 992px) {
+    /* Story Section */
+    .story-content-grid {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .story-text, .story-image {
+        max-width: 100%;
+        text-align: center;
+    }
+    .story-main-image {
+        margin: 0 auto;
+    }
+    .section-title-alt {
+        text-align: center;
+    }
+    /* Team Section */
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust columns for smaller desktop */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hero Section (inherits from page-hero-section) */
+    .page-hero-section.about-hero {
+        height: 30vh;
+    }
+    /* Story Section */
+    .our-story-section {
+        padding: 60px 0;
+    }
+    .section-title-alt {
+        font-size: 2em;
+    }
+    .story-text p {
+        font-size: 0.95em;
+    }
+    /* Team Section */
+    .our-team-section {
+        padding: 60px 0;
+    }
+    .team-grid {
+        grid-template-columns: 1fr; /* Stack on mobile */
+    }
+}
+
+/* --- Contact Page Hero Section (Similar to Services Page Hero) --- */
+.page-hero-section.contact-hero {
+    background-color: #0f3e5f; /* Or a different dark brand color */
+    /* background-image: url('path/to/contact-hero-image.jpg'); */ /* Optional: specific background image */
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- Main Contact Content Section --- */
+.contact-details-section {
+    padding: 80px 0;
+    background-color: #f8f8f8; /* Light background */
+    color: #333;
+    text-align: center;
+}
+
+.contact-details-section .container {
+    padding: 20px 25px;
+}
+
+/* --- Contact Grid Layout --- */
+.contact-grid {
+    display: flex;
+    gap: 60px; /* Space between columns */
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    margin-top: 60px;
+    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+}
+
+.contact-form-column,
+.direct-contact-column {
+    flex: 1; /* Both columns take equal space */
+    min-width: 300px; /* Minimum width before wrapping */
+    max-width: 500px; /* Max width for readability */
+    background-color: #fff;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Reset text alignment inside columns */
+}
+
+.contact-form-column h3,
+.direct-contact-column h3 {
+    font-size: 1.8em;
+    color: #0f3e5f; /* Dark brand blue */
+    margin-bottom: 25px;
+    text-align: center; /* Center heading */
+}
+
+/* --- Contact Form Styling --- */
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block; /* Label on its own line */
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: 'DM Sans', sans-serif; /* Ensure font is applied to form fields */
+    color: #333;
+    background-color: #f0f0f0; /* Light background for fields */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: #007bff; /* Highlight border on focus */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2); /* Subtle blue glow */
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.contact-form .btn-filled {
+    width: 100%; /* Full width button */
+    padding: 15px;
+    font-size: 1.1em;
+    margin-top: 10px; /* Space above button */
+    cursor: pointer;
+}
+
+/* --- Direct Contact Info Styling --- */
+.contact-info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1em;
+    color: #555;
+}
+
+.contact-info-item i { /* For icon placeholders like <i class="icon-phone"></i> */
+    font-size: 1.5em;
+    color: #007bff; /* Light brand blue for icons */
+    margin-right: 15px;
+    width: 30px; /* Ensure consistent icon sizing */
+    text-align: center;
+}
+
+/* Placeholder for styling the direct contact text/links */
+.contact-info-item span a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-info-item span a:hover {
+    text-decoration: underline;
+}
+
+.contact-social-links h3 {
+    text-align: left; /* Align social heading */
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.contact-social-links .social-icons {
+    justify-content: flex-start; /* Align social icons to the left */
+}
+
+.contact-map {
+    margin-top: 40px;
+}
+
+.contact-map h3 {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.contact-map iframe {
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Responsive Adjustments for Contact Page --- */
+@media (max-width: 992px) {
+    /* Hero section inherits responsive styles */
+
+    .contact-grid {
+        flex-direction: column; /* Stack columns on smaller screens */
+        gap: 30px;
+    }
+    .contact-form-column,
+    .direct-contact-column {
+        max-width: 100%; /* Take full width */
+        margin: 0 auto; /* Center column */
+    }
+    .contact-form-column h3,
+    .direct-contact-column h3 {
+        text-align: center;
+    }
+    .contact-info-item {
+        justify-content: center; /* Center contact info items */
+    }
+    .contact-social-links h3,
+    .contact-map h3 {
+        text-align: center;
+    }
+    .contact-social-links .social-icons {
+        justify-content: center; /* Center social icons when stacked */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hero section inherits responsive styles */
+    .contact-details-section {
+        padding: 60px 0;
+    }
+    .contact-details-section .section-title {
+        font-size: 2.2em;
+        margin-bottom: 30px;
+    }
+    .contact-details-section .intro-paragraph {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+    .contact-form-column,
+    .direct-contact-column {
+        padding: 25px;
+    }
+}
