@@ -6,7 +6,9 @@
     <meta name="description" content="Explore Proximax Technology's expert services: custom web app development, high-performance website hosting, and comprehensive IT solutions. Drive your business growth with our strategic tech partnerships.">
     <meta property="og:title" content="Our Services | Proximax Technology">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.proximaxtech.com/services.html"> <meta property="og:image" content="https://www.proximaxtech.com/images/services-page-social-share.jpg"> <meta property="og:image:alt" content="Proximax Technology services overview with tech icons.">
+    <meta property="og:url" content="https://www.proximaxtech.com/service.html">
+    <meta property="og:image" content="https://www.proximaxtech.com/images/services-page-social-share.jpg">
+    <meta property="og:image:alt" content="Proximax Technology services overview with tech icons.">
 
     <title>Our Services | Proximax Technology</title>
     <link rel="stylesheet" href="styles.css">
@@ -14,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
     <link rel=icon type="image/x-icon" href="image/fav.ico" sizes="48x48">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
@@ -27,7 +29,8 @@
         </div>
         <nav class="main-nav">
             <ul>
-                <li><a href="service.html">Services</a></li> <li><a href="partner.html">Partnerships</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="partner.html">Partnerships</a></li>
                 <li><a href="aboutus.html">About Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -39,86 +42,84 @@
         </div>
     </div>
 </header>
-<section class="page-hero-section">
+<section class="page-hero-section services-hero">
     <div class="page-hero-overlay"></div>
     <div class="container">
-        <h1>Our Comprehensive Services</h1>
-        <p>Empowering your business with strategic technology solutions tailored to your unique needs.</p>
+        <h1>Our Solutions for Your Success</h1>
+        <p>From custom development to robust infrastructure, we provide the technology backbone your business needs to thrive.</p>
     </div>
 </section>
-<section class="main-services-detail-section">
+<section class="services-overview-section">
     <div class="container">
         <h2 class="section-title">How We Empower Your Digital Journey</h2>
-        <p class="intro-paragraph">Proximax Technology provides a full spectrum of IT solutions designed for maximum efficiency, security, and growth. Explore our core service areas:</p>
+        <p class="intro-paragraph">Proximax Technology delivers innovative and reliable IT solutions, built on deep expertise and strategic partnerships, to ensure your business achieves maximum efficiency, security, and growth.</p>
 
-        <div class="service-detail-block">
-            <div class="service-detail-image-content">
-                <div class="image-wrapper">
-                    <img src="image/web-dev-service.jpg" alt="Web Solutions: Design & Development" class="service-detail-image">
-                </div>
-            </div>
-            <div class="service-detail-text-content">
-                <h3 class="service-detail-title">Web Solutions: Design & Development</h3>
-                <p>
-                    We specialize in crafting impactful and intuitive digital presences, from stunning corporate websites to complex e-commerce platforms. Our expertise extends to engineering bespoke web applications, meticulously designed to automate intricate business processes, enhance user engagement, and solve unique operational challenges. Every solution, whether a captivating front-end design or a robust back-end system, is built with precision, prioritizing performance, ironclad security, and future-proof scalability to align perfectly with your evolving business goals.
-                </p>
+        <div class="service-cards-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-code"></i></div>
+                <h3 class="service-card-title">Web Solutions: Design & Development</h3>
+                <p>Crafting stunning, responsive websites and powerful custom web applications tailored to your unique business needs, ensuring exceptional user experiences and robust functionality.</p>
                 <ul>
-                    <li>Custom Web Application Development (SaaS, Internal Tools, Portals)</li>
-                    <li>Responsive Website Design & Redesign</li>
-                    <li>E-commerce Platform Development</li>
-                    <li>UI/UX Design & User Research</li>
-                    <li>API Integration & Custom Functionality</li>
+                    <li><i class="fas fa-check-circle"></i> Custom Web Application Development</li>
+                    <li><i class="fas fa-check-circle"></i> Responsive Website Design & Redesign</li>
+                    <li><i class="fas fa-check-circle"></i> E-commerce Platform Development</li>
+                    <li><i class="fas fa-check-circle"></i> UI/UX Design & Research</li>
+                    <li><i class="fas fa-check-circle"></i> API Integration & Custom Functionality</li>
                 </ul>
-                <a href="contact.html" class="btn btn-filled">Get a Quote for Web Solutions</a>
+                <a href="contact.html" class="btn btn-filled service-card-cta">Learn More & Get a Quote</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-cloud"></i></div>
+                <h3 class="service-card-title">High-Performance Hosting</h3>
+                <p>Providing top-tier, reliable, and secure hosting infrastructure leveraging global cloud leaders like AWS, Azure, IBM, and Oracle, ensuring optimal performance and continuous availability for all your digital assets.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Cloud Hosting Management (Multi-Cloud)</li>
+                    <li><i class="fas fa-check-circle"></i> Managed Hosting Services & Server Maintenance</li>
+                    <li><i class="fas fa-check-circle"></i> Website & Application Deployment</li>
+                    <li><i class="fas fa-check-circle"></i> Scalability & Load Balancing Solutions</li>
+                    <li><i class="fas fa-check-circle"></i> Data Backup & Disaster Recovery (DRaaS)</li>
+                </ul>
+                <a href="contact.html" class="btn btn-filled service-card-cta">Request Hosting Details</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-cogs"></i></div>
+                <h3 class="service-card-title">Comprehensive IT Services & Consulting</h3>
+                <p>Offering a full spectrum of IT support and strategic consulting, acting as your trusted partner for infrastructure optimization, network support, and robust cybersecurity strategies, aligning technology with your business goals.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> IT Infrastructure Optimization & Setup</li>
+                    <li><i class="fas fa-check-circle"></i> Network Design & Support</li>
+                    <li><i class="fas fa-check-circle"></i> Cybersecurity Consulting & Implementation</li>
+                    <li><i class="fas fa-check-circle"></i> Cloud Strategy & Migration Services</li>
+                    <li><i class="fas fa-check-circle"></i> Technical Support & Helpdesk Solutions</li>
+                </ul>
+                <a href="contact.html" class="btn btn-filled service-card-cta">Discuss Your IT Needs</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-lock"></i></div> <h3 class="service-card-title">Cybersecurity Solutions & Advisory</h3>
+                <p>Protecting your digital assets with robust security measures and strategic advisory services, ensuring resilience against evolving cyber threats and maintaining data integrity.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Vulnerability Assessments & Pen Testing</li>
+                    <li><i class="fas fa-check-circle"></i> Managed Security Services (MSS) via Partners</li>
+                    <li><i class="fas fa-check-circle"></i> Data Protection & Incident Response Planning</li>
+                    <li><i class="fas fa-check-circle"></i> Security Awareness Training</li>
+                    <li><i class="fas fa-check-circle"></i> Compliance & Risk Management Consulting</li>
+                </ul>
+                <a href="contact.html" class="btn btn-filled service-card-cta">Secure Your Business</a>
             </div>
         </div>
-
-        <div class="service-detail-block reverse-layout">
-            <div class="service-detail-image-content">
-                <div class="image-wrapper">
-                    <img src="image/server-service.jpg" alt="High-Performance Hosting" class="service-detail-image">
-                </div>
-            </div>
-            <div class="service-detail-text-content">
-                <h3 class="service-detail-title">High-Performance Hosting</h3>
-                <p>
-                    We provide top-tier, reliable, and secure hosting infrastructure, ensuring your websites and web applications experience optimal performance and continuous availability. Leveraging our strategic partnerships with global cloud leaders like AWS, Azure, IBM, and Oracle, we offer robust, scalable, and fully managed hosting environments. This commitment guarantees lightning-fast load times, seamless user experiences, and the peace of mind that your critical digital assets are always online, protected, and ready to meet demand, even during peak traffic.
-                </p>
-                <ul>
-                    <li>Cloud Hosting Management (AWS, Azure, IBM, Oracle)</li>
-                    <li>Managed Hosting Services & Server Maintenance</li>
-                    <li>Website & Application Deployment</li>
-                    <li>Scalability Solutions (Load Balancing, Auto-Scaling)</li>
-                    <li>Data Backup & Disaster Recovery (DRaaS)</li>
-                </ul>
-                <a href="contact.html" class="btn btn-filled">Request Hosting Details</a>
-            </div>
-        </div>
-
-        <div class="service-detail-block">
-            <div class="service-detail-image-content">
-                <div class="image-wrapper">
-                    <img src="image/consulting.jpg" alt="IT Services & Consulting" class="service-detail-image">
-                </div>
-            </div>
-            <div class="service-detail-text-content">
-                <h3 class="service-detail-title">Comprehensive IT Services & Consulting</h3>
-                <p>
-                    Beyond our specialized web solutions and hosting, Proximax Technology offers a full spectrum of comprehensive IT services and strategic technology consulting. We act as your trusted technical partner, providing expert guidance on IT infrastructure optimization, system integration, network support, and robust cybersecurity strategies. Our managed services ensure your entire IT ecosystem is resilient, efficient, and perfectly aligned with your long-term business objectives, freeing you to focus on your core operations while we manage your technology backbone.
-                </p>
-                <ul>
-                    <li>IT Infrastructure Optimization & Setup</li>
-                    <li>Network Design & Support</li>
-                    <li>Cybersecurity Consulting & Implementation (via partners)</li>
-                    <li>Cloud Strategy & Migration Services</li>
-                    <li>Technical Support & Helpdesk Solutions</li>
-                </ul>
-                <a href="contact.html" class="btn btn-filled">Discuss Your IT Needs</a>
-            </div>
-        </div>
-
     </div>
 </section>
+<section class="final-cta-section">
+    <div class="container">
+        <h2 class="cta-title">Ready to Elevate Your Business?</h2>
+        <p class="cta-text">Let Proximax Technology be your strategic partner in navigating the digital landscape. Contact us today to discuss your unique needs and how our expertise can drive your growth.</p>
+        <a href="contact.html" class="btn btn-filled large final-cta-button">Get Your Free Consultation</a>
+    </div>
+</section>
+
 <footer class="main-footer">
     <div class="container">
         <div class="footer-grid">
@@ -131,7 +132,7 @@
             <div class="footer-links">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="service.html">Services</a></li>
+                    <li><a href="index.html">Home</a></li> <li><a href="service.html">Services</a></li>
                     <li><a href="partner.html">Partnerships</a></li>
                     <li><a href="aboutus.html">About Us</a></li>
                     <li><a href="contact.html">Contact</a></li>

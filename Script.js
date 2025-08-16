@@ -1,20 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Hamburger menu functionality
     const hamburger = document.querySelector('.hamburger-menu');
     const navMenu = document.querySelector('.main-nav');
-    // REMOVED: The line below is deleted as the element no longer exists
+    // The nav-buttons element was removed from HTML, so no need to select it here
     // const navButtons = document.querySelector('.nav-buttons');
 
-    hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        // REMOVED: The line below is deleted as it's no longer needed
-        // if (navButtons) { navButtons.classList.toggle('active'); }
-        hamburger.classList.toggle('open');
-    });
-});
-
-// In Script.js, inside your DOMContentLoaded listener:
-document.addEventListener('DOMContentLoaded', () => {
-    // ... (your existing hamburger menu JS) ...
+    if (hamburger && navMenu) { // Ensure elements exist before adding listener
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            // If nav-buttons was present, you'd toggle it here:
+            // if (navButtons) { navButtons.classList.toggle('active'); }
+            hamburger.classList.toggle('open');
+        });
+    }
 
     // JavaScript for current year in footer
     const currentYearSpan = document.getElementById('current-year');

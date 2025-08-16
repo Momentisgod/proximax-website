@@ -1,25 +1,40 @@
-/* Basic Resets & Global Styles (keep as is) */
+/* Basic Resets & Global Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* CRITICAL: Ensure images and videos are responsive globally */
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Helps remove extra space below images */
+}
+
 body {
     font-family: 'DM Sans', Arial, sans-serif; /* Applied imported font */
     line-height: 1.6;
-    color: #fff; /* Default text color for the hero section */
+    color: #fff; /* Default text color for the hero section and dark backgrounds */
     overflow-x: hidden; /* Prevent horizontal scroll */
     background-color: #222; /* Add a subtle background color for areas outside the video, if any, or for scroll */
 }
 
 a {
     text-decoration: none;
-    color: inherit;
+    color: inherit; /* Inherit color unless explicitly set */
 }
 
 ul {
     list-style: none;
+}
+
+/* Global Container Styles - Adjusted for better mobile padding */
+.container {
+    max-width: 1000px; /* Default for desktop */
+    margin: 0 auto;
+    padding: 20px 25px; /* Horizontal padding for desktop */
+    padding-top: 100px; /* Give space for the fixed header */
 }
 
 /* --- Main Header / Navigation Bar --- */
@@ -35,28 +50,17 @@ ul {
 }
 
 .header-container {
-    /* REMOVED: background-color: #333; */
-    /* REMOVED: border-radius: 12px; */
-    /* REMOVED: box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); */
-
-    padding: 0 25px; /* Internal horizontal padding for elements, vertical padding comes from .main-header */
+    padding: 0 25px;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Distribute items */
-    max-width: 1000px; /* Max width like super.work */
-    width: 90%; /* Responsive width */
-
-    /* Optional: Apply backdrop-filter directly here for subtle blur if desired, like super.work */
-    /* background-color: rgba(0, 0, 0, 0.1); /* Very subtle transparent background if backdrop-filter isn't enough */
-
-    backdrop-filter: blur(5px); /* Adds a subtle blur to content behind the nav elements */
-    -webkit-backdrop-filter: blur(5px); /* For Safari compatibility */
-
-    /* Ensure height is determined by content, or explicitly set */
-    min-height: 40px; /* Minimum height for better click targets */
+    justify-content: space-between;
+    max-width: 1000px;
+    width: 90%;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    min-height: 40px;
 }
 
-/* Logo Styling - Keep as is (should be light colored) */
 .logo a {
     text-decoration: none;
     padding-right: 20px;
@@ -68,7 +72,6 @@ ul {
     vertical-align: middle;
 }
 
-/* Navigation Links (Keep as is - white text) */
 .main-nav ul {
     display: flex;
     list-style: none;
@@ -90,58 +93,55 @@ ul {
     transition: color 0.3s ease;
 }
 
-/* Navigation Links - UPDATED HOVER COLOR */
 .main-nav ul li a:hover {
-    color: #0f3e5f; /* Changed from #000000 (black) to a visible blue on hover */
+    color: #007bff; /* Updated hover color */
 }
 
-/* Button Styling (Keep as is) */
-.nav-buttons { /* Changed from .nav-button to .nav-buttons to match HTML */
-    margin-left: 25px;
-    display: flex; /* Ensure buttons are side-by-side if multiple */
-    gap: 10px; /* Space between buttons */
-}
-
+/* --- Global Button Styling --- */
+/* These styles were previously nested/commented out; they are now active and global */
 .btn {
     padding: 8px 18px;
     border-radius: 8px;
     font-size: 0.9em;
     font-weight: 600;
     text-align: center;
-    text-decoration: none;
+    text-decoration: none; /* Remove underline from buttons */
     transition: all 0.3s ease;
     white-space: nowrap;
+    cursor: pointer; /* Indicate it's clickable */
 }
 
-.btn-outline { /* If you use an outline button here */
+.btn-outline {
     border: 1px solid #fff; /* White outline */
     color: #fff;
     background-color: transparent;
 }
 
-.btn-filled:hover {
-    background-color: #0056b3;
+.btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
 }
 
 .btn-filled {
-    background-color: #0f3e5f; /* Changed to a standard blue for better contrast */
+    background-color: #007bff; /* Your light brand blue */
     color: #fff;
     border: none;
 }
 
 .btn-filled:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
-.btn-filled.large {
+.btn-filled.large { /* Specific style for larger buttons */
     padding: 15px 30px;
     font-size: 1.1em;
-    margin-top: 30px;
+    margin-top: 30px; /* Space below paragraph in hero */
 }
 
-/* Hamburger Menu (Keep as is) */
+
+/* Hamburger Menu */
 .hamburger-menu {
-    display: none;
+    display: none; /* Hidden by default on desktop */
     cursor: pointer;
     flex-direction: column;
     gap: 4px;
@@ -155,7 +155,7 @@ ul {
     border-radius: 2px;
 }
 
-/* --- Hero Section with Video Background (Keep as is) --- */
+/* --- Hero Section with Video Background --- */
 .hero-section {
     position: relative;
     width: 100vw;
@@ -188,7 +188,7 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Darker overlay for text readability */
+    background-color: rgba(0, 0, 0, 0.4);
     z-index: 0;
 }
 
@@ -213,224 +213,118 @@ ul {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
-/* --- Responsive Design (Keep as is) --- */
-@media (max-width: 768px) {
-    .main-header {
-        padding: 15px 20px; /* Adjust padding for mobile header */
-    }
-
-    .main-nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.9);
-        padding: 20px 0;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        border-radius: 0 0 12px 12px; /* Add border-radius back for mobile menu dropdown */
-    }
-
-    .main-nav ul {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    .main-nav ul li {
-        margin: 10px 0;
-        width: 100%;
-        text-align: center;
-    }
-    .main-nav ul li a {
-        padding: 10px 0;
-        display: block;
-    }
-
-    .nav-buttons { /* Ensure this targets the correct element */
-        display: none;
-        flex-direction: column;
-        gap: 10px;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
-        padding: 20px 0;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        border-radius: 0 0 12px 12px; /* Add border-radius back for mobile menu dropdown */
-    }
-
-    .nav-buttons .btn {
-        width: calc(100% - 40px);
-        margin: 0 20px;
-    }
-
-    .hamburger-menu {
-        display: flex;
-    }
-
-    .main-nav.active, .nav-buttons.active {
-        display: flex;
-    }
-
-    .hero-content h1 {
-        font-size: 2.5em;
-    }
-
-    .hero-content p {
-        font-size: 1em;
-    }
-
-    .btn-filled.large {
-        font-size: 1em;
-        padding: 12px 25px;
-    }
-}
-
 /* --- Partners Section --- */
 .partners-section {
-    padding: 80px 0; /* Vertical padding for the section */
-    background-color: #fff; /* White background as seen in video */
-    text-align: center; /* Center the title */
-    overflow: hidden; /* Hide anything that spills out, crucial for the horizontal scroll */
+    padding: 80px 0;
+    background-color: #fff;
+    text-align: center;
+    overflow: hidden;
 }
 
 .partners-header {
-    margin-bottom: 50px; /* Space below the title */
+    margin-bottom: 50px;
 }
 
 .partners-header h2 {
-    font-size: 2.5em; /* Adjust title font size */
-    color: #333; /* Dark grey text for title */
-    margin-bottom: 10px; /* Space between title and underline */
+    font-size: 2.5em;
+    color: #333; /* Dark text for title */
+    margin-bottom: 10px;
 }
 
 .partners-header .underline {
-    width: 60px; /* Width of the underline */
-    height: 3px; /* Thickness of the underline */
-    background-color: #007bff; /* Use a color matching your brand or super.work's blue */
-    margin: 0 auto; /* Center the underline */
+    width: 60px;
+    height: 3px;
+    background-color: #007bff;
+    margin: 0 auto;
 }
 
 .partners-logos-container {
     width: 100%;
-    /* overflow-x: auto;  Enable manual horizontal scrolling */
-    /* white-space: nowrap; */ /* Keep logos on one line for manual scroll */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    scrollbar-width: none; /* Hide scrollbar for Firefox */
-    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
-/* Hide scrollbar for Chrome, Safari, Opera */
 .partners-logos-container::-webkit-scrollbar {
     display: none;
 }
 
 .partners-logos {
-    display: flex; /* Arrange logos horizontally */
+    display: flex;
     align-items: center;
-    justify-content: space-around; /* Distribute space among logos */
-    min-width: fit-content; /* Ensure container expands to fit all logos */
-    padding: 20px 0; /* Padding around logos */
-
-    /* --- For Continuous Automatic Scroll (like a marquee) --- */
-    animation: scroll-logos 40s linear infinite; /* Adjust duration based on number of logos */
-    animation-play-state: running; /* Start animation automatically */
+    justify-content: flex-start;
+    min-width: fit-content;
+    padding: 20px 0;
+    animation: scroll-logos 40s linear infinite;
+    animation-play-state: running;
 }
 
 .partners-logos:hover {
-    animation-play-state: paused; /* Pause animation on hover */
+    animation-play-state: paused;
 }
 
 .partners-logos img {
-    height: 60px; /* Uniform height for logos */
-    width: auto; /* Maintain aspect ratio */
-    margin: 0 40px; /* Space between logos */
-    opacity: 0.7; /* Slightly faded, like in the video */
-    transition: opacity 0.3s ease; /* Smooth hover effect */
-
-    /* Grayscale effect as seen in the video */
-    filter: grayscale(100%); /* Make logos grayscale */
-    -webkit-filter: grayscale(100%); /* For Safari */
+    height: 60px;
+    width: auto;
+    margin: 0 40px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
 }
 
 .partners-logos img:hover {
-    opacity: 1; /* Full color on hover */
-    filter: grayscale(0%); /* Full color on hover */
+    opacity: 1;
+    filter: grayscale(0%);
     -webkit-filter: grayscale(0%);
 }
 
-/* --- Keyframe for Continuous Automatic Scroll --- */
 @keyframes scroll-logos {
-    0% { transform: translateX(0); } /* Start at original position */
-    100% { transform: translateX(-50%); } /* Scroll exactly half way (because logos are duplicated) */
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
-/* --- Responsive Adjustments --- */
-@media (max-width: 768px) {
-    .partners-section {
-        padding: 50px 0;
-    }
-
-    .partners-header h2 {
-        font-size: 2em;
-    }
-
-    .partners-logos {
-        animation-duration: 25s; /* Faster scroll on smaller screens */
-    }
-
-    .partners-logos img {
-        height: 50px; /* Smaller logos on mobile */
-        margin: 0 25px;
-    }
-}
-
-/* --- Vision, Mission, Core Values Section --- */
+/* --- Vision, Mission, Core Values Section (aboutus.html) --- */
 .vmc-section {
-    padding: 80px 0; /* Vertical padding */
-    background-color: #fff; /* White background for this section */
-    color: #333; /* Dark text color */
+    padding: 80px 0;
+    background-color: #fff;
+    color: #333; /* Dark text for this section */
 }
 
 .vmc-section .container {
-    /* Inherits max-width, margin from global .container */
-    padding: 20px 25px; /* Adjust padding as needed for this section */
+    padding: 20px 25px;
 }
 
 .vmc-block {
-    display: flex; /* Use flexbox for two-column layout */
-    align-items: center; /* Vertically align items */
-    margin-bottom: 60px; /* Space between blocks */
-    gap: 40px; /* Space between text and image columns */
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+    gap: 40px;
 }
 
-/* Reverse order for Mission block to match screenshot */
 .vmc-block.mission-block {
     flex-direction: row-reverse;
 }
 
 .vmc-text-content {
-    flex: 1; /* Allows text content to grow */
-    max-width: 50%; /* Limits text width */
-    padding: 0 20px; /* Internal padding */
+    flex: 1;
+    max-width: 50%;
+    padding: 0 20px;
 }
 
 .vmc-image-content {
-    flex: 1; /* Allows image content to grow */
-    max-width: 50%; /* Limits image width */
-    position: relative; /* For absolute positioning of circle icon */
-    display: flex; /* For centering image if it's smaller */
+    flex: 1;
+    max-width: 50%;
+    position: relative;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .vmc-title {
-    font-size: 1.2em; /* Smaller title like in the example */
+    font-size: 1.2em;
     font-weight: 600;
-    color: #0f3e5f; /* Use your brand blue */
+    color: #0f3e5f; /* Dark brand blue */
     margin-bottom: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -440,12 +334,11 @@ ul {
     font-size: 1.1em;
     line-height: 1.7;
     margin-bottom: 0;
-    color: #555;
+    color: #555; /* Darker grey for paragraphs */
 }
 
-/* Core Values Specific Styling */
 .core-values-block .vmc-text-content ul {
-    list-style: none; /* Remove default bullet */
+    list-style: none;
     padding-left: 0;
 }
 
@@ -454,13 +347,13 @@ ul {
     line-height: 1.6;
     margin-bottom: 10px;
     position: relative;
-    padding-left: 25px; /* Space for custom bullet */
-    color: #555;
+    padding-left: 25px;
+    color: #555; /* Darker grey for list items */
 }
 
 .core-values-block .vmc-text-content ul li::before {
-    content: '•'; /* Custom bullet point */
-    color: #ff5722; /* Your brand orange for bullet */
+    content: '•';
+    color: #ff5722;
     font-size: 1.2em;
     position: absolute;
     left: 0;
@@ -472,13 +365,12 @@ ul {
     color: #333; /* Make bold text darker */
 }
 
-/* --- Image and Icon Styling --- */
 .image-wrapper {
     position: relative;
     width: 100%;
-    padding-top: 60%; /* Aspect ratio: 60% of width for height */
+    padding-top: 60%;
     overflow: hidden;
-    border-radius: 12px; /* Rounded corners for the image block */
+    border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -488,161 +380,128 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure image covers the area */
-    filter: grayscale(100%); /* Apply grayscale filter */
-    -webkit-filter: grayscale(100%); /* For Safari */
+    object-fit: cover;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
 }
 
-/* Icon Circle Styling - positioned over the image */
 .icon-circle {
     position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust for perfect centering */
-    width: 120px; /* Size of the circle */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
     height: 120px;
-    background-color: #0f3e5f; /* Your brand blue for the circle background */
-    border-radius: 50%; /* Makes it a circle */
+    background-color: #0f3e5f;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 5; /* Ensure it's above the image */
+    z-index: 5;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .icon-circle img {
-    height: 60px; /* Size of the icon inside the circle */
+    height: 60px;
     width: 60px;
-    filter: brightness(0) invert(1); /* Makes SVG icons white */
+    filter: brightness(0) invert(1);
 }
 
-/* --- Responsive Adjustments --- */
-@media (max-width: 992px) { /* Adjust for medium screens */
-    .vmc-block {
-        flex-direction: column; /* Stack columns on smaller screens */
-        text-align: center;
-    }
-
-    .vmc-block.mission-block {
-        flex-direction: column; /* Ensure mission block also stacks */
-    }
-
-    .vmc-text-content,
-    .vmc-image-content {
-        max-width: 100%; /* Take full width */
-        padding: 0;
-    }
-
-    .vmc-image-content {
-        margin-bottom: 30px; /* Add space below image when stacked */
-    }
-
-    .vmc-title {
-        text-align: center;
-        margin-top: 20px; /* Space above title when stacked */
-    }
-
-    .vmc-text-content p {
-        text-align: center;
-    }
-
-}
-
-@media (max-width: 768px) { /* Adjust for mobile screens */
-    .vmc-section {
-        padding: 60px 0;
-    }
-    .vmc-block {
-        margin-bottom: 40px;
-        gap: 20px;
-    }
-    .vmc-title {
-        font-size: 1.1em;
-    }
-    .vmc-text-content p {
-        font-size: 0.95em;
-    }
-    .icon-circle {
-        width: 100px;
-        height: 100px;
-    }
-    .icon-circle img {
-        height: 50px;
-        width: 50px;
-    }
-}
-
-/* --- What We Do Section --- */
+/* --- What We Do Section (index.html) --- */
 .what-we-do-section {
-    padding: 80px 0; /* Vertical padding */
-    background-color: #fff; /* White background for this section */
-    color: #333; /* Dark text color for readability */
-    text-align: center; /* Center section title and intro paragraph */
+    padding: 80px 0;
+    background-color: #fff;
+    color: #333; /* Dark text for this section */
+    text-align: center;
 }
 
 .what-we-do-section .container {
-    /* Inherits max-width, margin from global .container */
-    padding: 20px 25px; /* Adjust padding as needed for this section */
+    padding: 20px 25px;
 }
 
 .what-we-do-section .section-title {
     font-size: 2.8em;
-    color: #0f3e5f; /* Use your brand's accent color */
+    color: #0f3e5f; /* Dark brand blue */
     margin-bottom: 20px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Lighter shadow on white background */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 .what-we-do-section .intro-paragraph {
     font-size: 1.1em;
     max-width: 800px;
-    margin: 0 auto 60px auto; /* Space below intro paragraph */
+    margin: 0 auto 60px auto;
     line-height: 1.8;
-    color: #555;
+    color: #555; /* Darker grey for paragraphs */
 }
 
 /* --- Service Blocks Layout (Image Left, Text Right) --- */
 .service-block {
-    display: flex; /* Use flexbox for two-column layout */
-    align-items: center; /* Vertically align items */
-    margin-bottom: 60px; /* Space between service blocks */
-    gap: 50px; /* Space between image and text columns */
-    text-align: left; /* Reset text alignment within the block */
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+    gap: 50px;
+    text-align: left;
+}
+
+.service-block.reverse-layout {
+    flex-direction: row-reverse;
 }
 
 .service-image-content {
-    flex: 1; /* Allows image column to grow */
-    max-width: 50%; /* Limits image column width */
+    flex: 1;
+    max-width: 50%;
 }
 
 .service-text-content {
-    flex: 1; /* Allows text column to grow */
-    max-width: 50%; /* Limits text column width */
-}
-
-.service-block:nth-child(even) { /* For alternating layout (text left, image right) - if you want it to alternate */
-    /* flex-direction: row-reverse; */ /* Commented out to keep image left for all blocks */
+    flex: 1;
+    max-width: 50%;
 }
 
 .service-title {
-    font-size: 2em; /* Title of each service */
-    color: #0f3e5f; /* Your brand blue */
+    font-size: 2em;
+    color: #0f3e5f; /* Dark brand blue */
     margin-bottom: 15px;
 }
 
 .service-text-content p {
     font-size: 1em;
     line-height: 1.7;
-    color: #666;
+    color: #666; /* Darker grey for paragraphs */
+    margin-bottom: 20px;
+}
+
+.service-text-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 30px;
+}
+
+.service-text-content ul li {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 30px;
+    color: #444; /* Darker grey for list items */
+}
+
+.service-text-content ul li::before {
+    content: '✓';
+    color: #ff5722;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 /* --- Image Styling within Service Blocks --- */
 .service-image-content .image-wrapper {
     position: relative;
     width: 100%;
-    padding-top: 65%; /* Aspect ratio (e.g., 16:9 would be 56.25%, adjust as needed) */
+    padding-top: 65%;
     overflow: hidden;
-    border-radius: 12px; /* Rounded corners for the image block */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 .service-image {
@@ -651,76 +510,27 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure image covers the area */
-    display: block; /* Remove extra space below image */
+    object-fit: cover;
+    display: block;
 }
 
-/* --- Responsive Adjustments for What We Do Section --- */
-@media (max-width: 992px) { /* Adjust for medium screens */
-    .service-block {
-        flex-direction: column; /* Stack columns on smaller screens */
-        text-align: center; /* Center text when stacked */
-        gap: 30px;
-    }
-
-    .service-image-content,
-    .service-text-content {
-        max-width: 100%; /* Take full width */
-    }
-
-    .service-image-content {
-        margin-bottom: 20px; /* Space below image when stacked */
-    }
-
-    .service-title {
-        text-align: center; /* Ensure title is centered when stacked */
-        font-size: 1.8em;
-    }
-    .service-text-content p {
-        text-align: center; /* Ensure paragraph is centered when stacked */
-    }
-}
-
-@media (max-width: 768px) { /* Adjust for mobile screens */
-    .what-we-do-section {
-        padding: 60px 0;
-    }
-    .what-we-do-section .section-title {
-        font-size: 2.2em;
-    }
-    .what-we-do-section .intro-paragraph {
-        font-size: 1em;
-        margin-bottom: 40px;
-    }
-    .service-block {
-        margin-bottom: 40px;
-    }
-    .service-title {
-        font-size: 1.5em;
-    }
-    .service-text-content p {
-        font-size: 0.9em;
-    }
-}
-
-/* --- Client Testimonials / Success Stories Section --- */
+/* --- Client Testimonials / Success Stories Section (index.html) --- */
 .testimonials-section {
     padding: 80px 0;
-    background-color: #f8f8f8; /* Light background for contrast */
-    color: #333; /* Dark text for readability */
+    background-color: #f8f8f8;
+    color: #333; /* Dark text for this section */
     text-align: center;
 }
 
 .testimonials-section .container {
-    /* Inherits max-width, margin from global .container */
-    padding: 20px 25px; /* Adjust padding as needed */
+    padding: 20px 25px;
 }
 
 .testimonials-section .section-title {
     font-size: 2.8em;
-    color: #0f3e5f; /* Your dark brand blue */
+    color: #0f3e5f;
     margin-bottom: 20px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Lighter shadow */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .testimonials-section .intro-paragraph {
@@ -731,59 +541,58 @@ ul {
     color: #555;
 }
 
-/* --- Testimonial Grid --- */
 .testimonial-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid: at least 300px wide, max 1fr */
-    gap: 30px; /* Space between cards */
-    margin-bottom: 50px; /* Space below grid and before CTA button */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
 }
 
 .testimonial-card {
-    background-color: #fff; /* White background for individual cards */
+    background-color: #fff;
     border-radius: 12px;
     padding: 30px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Pushes client info to bottom */
-    text-align: left; /* Text aligns left within card */
+    justify-content: space-between;
+    text-align: left;
 }
 
 .testimonial-card .quote-icon {
-    font-family: serif; /* Stylized quote character */
+    font-family: serif;
     font-size: 4em;
-    color: #ddd; /* Light grey for the decorative quote */
+    color: #ddd;
     line-height: 0.8;
     margin-bottom: 15px;
-    float: left; /* Floats the quote icon */
+    float: left;
     margin-right: 5px;
 }
 
 .testimonial-card .quote {
     font-size: 1.1em;
-    font-style: italic; /* Italicize the quote text */
+    font-style: italic;
     line-height: 1.6;
     color: #444;
     margin-bottom: 25px;
-    clear: both; /* Clear float from quote-icon */
+    clear: both;
 }
 
 .testimonial-card .client-info {
     display: flex;
     align-items: center;
-    margin-top: auto; /* Push client-info to the bottom of the flex card */
-    padding-top: 15px; /* Space above client info */
-    border-top: 1px solid #eee; /* Subtle separator */
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
 }
 
 .testimonial-card .client-avatar {
-    width: 60px; /* Size of avatar */
+    width: 60px;
     height: 60px;
-    border-radius: 50%; /* Make it circular */
+    border-radius: 50%;
     object-fit: cover;
     margin-right: 15px;
-    border: 2px solid #007bff; /* Small border with your brand blue */
+    border: 2px solid #007bff;
 }
 
 .testimonial-card .client-details {
@@ -802,140 +611,77 @@ ul {
     color: #777;
 }
 
-/* --- CTA Button (re-using existing btn-outline styles) --- */
 .testimonials-cta {
-    margin-top: 20px; /* Space above the button */
-    display: inline-block; /* Ensure button can be centered */
-}
-
-/* --- Responsive Adjustments --- */
-@media (max-width: 768px) {
-    .testimonials-section {
-        padding: 60px 0;
-    }
-    .testimonials-section .section-title {
-        font-size: 2.2em;
-    }
-    .testimonials-section .intro-paragraph {
-        font-size: 1em;
-        margin-bottom: 40px;
-    }
-    .testimonial-grid {
-        grid-template-columns: 1fr; /* Stack cards on mobile */
-    }
-    .testimonial-card {
-        padding: 25px;
-    }
-    .testimonial-card .quote-icon {
-        font-size: 3em;
-    }
-    .testimonial-card .quote {
-        font-size: 1em;
-    }
+    margin-top: 20px;
+    display: inline-block;
 }
 
 /* --- Final Call to Action Section --- */
 .final-cta-section {
-    padding: 100px 0; /* Generous vertical padding */
-    background-color: #0f3e5f; /* Your dark brand blue background */
-    color: #fff; /* White text for readability */
+    padding: 100px 0;
+    background-color: #0f3e5f;
+    color: #fff;
     text-align: center;
 }
 
 .final-cta-section .container {
-    /* Inherits max-width, margin from global .container */
-    padding: 20px 25px; /* Adjust padding as needed */
+    padding: 20px 25px;
 }
 
 .cta-title {
-    font-size: 3.2em; /* Prominent title */
-    color: #fff; /* White text */
+    font-size: 3.2em;
+    color: #fff;
     margin-bottom: 25px;
     line-height: 1.2;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Subtle text shadow */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 
 .cta-text {
     font-size: 1.2em;
     max-width: 800px;
-    margin: 0 auto 40px auto; /* Center text and space below it */
+    margin: 0 auto 40px auto;
     line-height: 1.7;
-    color: #e0e0e0; /* Slightly off-white for body text */
+    color: #e0e0e0;
 }
 
 .final-cta-button {
-    /* Reuses .btn-filled.large styles */
-    /* Add any specific overrides here if needed */
-    display: inline-block; /* Ensure it behaves like a block for margin auto */
-}
-
-/* --- Responsive Adjustments for Final CTA --- */
-@media (max-width: 992px) {
-    .final-cta-section {
-        padding: 80px 0;
-    }
-    .cta-title {
-        font-size: 2.5em;
-    }
-    .cta-text {
-        font-size: 1.1em;
-        margin-bottom: 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    .final-cta-section {
-        padding: 60px 0;
-    }
-    .cta-title {
-        font-size: 2em;
-    }
-    .cta-text {
-        font-size: 1em;
-        margin-bottom: 25px;
-    }
-    .final-cta-button {
-        /* If you need to make the button full width on mobile */
-        /* width: calc(100% - 40px); */
-        /* margin: 0 auto; */
-    }
+    display: inline-block;
 }
 
 /* --- Footer Section --- */
 .main-footer {
-    padding: 60px 0 20px 0; /* Top, Right, Bottom, Left padding */
-    background-color: #111; /* Very dark background */
-    color: #ccc; /* Light grey text */
+    padding: 60px 0 20px 0;
+    background-color: #111;
+    color: #ccc;
     font-size: 0.9em;
     line-height: 1.6;
 }
 
 .main-footer .container {
-    /* Inherits max-width, margin from global .container */
-    padding: 0 25px; /* Horizontal padding for content */
+    padding: 0 25px;
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
-    gap: 30px; /* Space between grid items */
-    margin-bottom: 40px; /* Space above the bottom copyright section */
-    text-align: left; /* Align text within columns */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+    text-align: left;
 }
 
 .footer-logo img {
-    height: 50px; /* Adjust logo height in footer */
+    height: 50px;
     max-width: 100%;
     margin-bottom: 20px;
-    filter: brightness(0) invert(1); /* Makes logo white if it's black/dark on transparent background */
+    filter: brightness(0) invert(1);
 }
 
 .footer-grid h3 {
     font-size: 1.2em;
-    color: #fff; /* White headings */
+    color: #fff;
     margin-bottom: 20px;
     position: relative;
-    padding-bottom: 10px; /* Space below heading for underline */
+    padding-bottom: 10px;
 }
 
 .footer-grid h3::after {
@@ -943,9 +689,9 @@ ul {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 40px; /* Underline width */
-    height: 2px; /* Underline thickness */
-    background-color: #007bff; /* Your brand blue underline */
+    width: 40px;
+    height: 2px;
+    background-color: #007bff;
 }
 
 .footer-links ul {
@@ -981,12 +727,12 @@ ul {
 
 .social-icons {
     display: flex;
-    gap: 15px; /* Space between icons */
+    gap: 15px;
     margin-top: 15px;
 }
 
 .social-icons a img {
-    height: 30px; /* Size of social icons */
+    height: 30px;
     width: 30px;
     opacity: 0.8;
     transition: opacity 0.3s ease;
@@ -997,10 +743,10 @@ ul {
 }
 
 .footer-bottom {
-    border-top: 1px solid #333; /* Separator line */
+    border-top: 1px solid #333;
     padding-top: 20px;
     text-align: center;
-    color: #888; /* Slightly darker grey for copyright text */
+    color: #888;
     font-size: 0.85em;
 }
 
@@ -1010,32 +756,32 @@ ul {
         padding: 40px 0 15px 0;
     }
     .footer-grid {
-        grid-template-columns: 1fr; /* Stack columns on mobile */
-        text-align: center; /* Center text when stacked */
+        grid-template-columns: 1fr;
+        text-align: center;
         margin-bottom: 30px;
     }
     .footer-grid h3 {
         text-align: center;
     }
     .footer-grid h3::after {
-        left: 50%; /* Center underline on mobile */
+        left: 50%;
         transform: translateX(-50%);
     }
     .footer-about,
     .footer-links,
     .footer-contact,
     .footer-social {
-        margin-bottom: 30px; /* Space between stacked columns */
+        margin-bottom: 30px;
     }
     .social-icons {
-        justify-content: center; /* Center social icons */
+        justify-content: center;
     }
     .footer-bottom {
         padding-top: 15px;
     }
 }
 
-/* --- Services Page Hero Section --- */
+/* --- Services Page Hero Section (Base Styles for all internal pages) --- */
 .page-hero-section {
     position: relative;
     width: 100vw;
@@ -1078,21 +824,20 @@ ul {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
-/* --- Main Services Detail Section --- */
+/* --- Main Services Detail Section (Specific for service.html) --- */
 .main-services-detail-section {
     padding: 80px 0;
-    background-color: #f8f8f8; /* Light background for contrast */
+    background-color: #f8f8f8;
     color: #333;
 }
 
 .main-services-detail-section .container {
-    /* Inherits max-width, margin from global .container */
     padding: 20px 25px;
 }
 
 .main-services-detail-section .section-title {
     font-size: 2.8em;
-    color: #0f3e5f; /* Dark brand blue */
+    color: #0f3e5f;
     margin-bottom: 20px;
     text-align: center;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
@@ -1107,33 +852,31 @@ ul {
     text-align: center;
 }
 
-/* --- Service Detail Blocks (Image Left, Text Right) --- */
-.service-detail-block {
+.service-block {
     display: flex;
     align-items: center;
-    margin-bottom: 80px; /* More space between detailed blocks */
-    gap: 60px; /* More space between image and text */
+    margin-bottom: 80px;
+    gap: 60px;
     text-align: left;
 }
 
-/* Reverse layout for alternating blocks (Text Left, Image Right) */
-.service-detail-block.reverse-layout {
+.service-block.reverse-layout {
     flex-direction: row-reverse;
 }
 
-.service-detail-image-content {
+.service-image-content {
     flex: 1;
     max-width: 50%;
 }
 
-.service-detail-text-content {
+.service-text-content {
     flex: 1;
     max-width: 50%;
 }
 
 .service-detail-title {
     font-size: 2.2em;
-    color: #007bff; /* Your light brand blue */
+    color: #007bff;
     margin-bottom: 20px;
 }
 
@@ -1145,7 +888,7 @@ ul {
 }
 
 .service-detail-text-content ul {
-    list-style: none; /* Remove default bullet */
+    list-style: none;
     padding-left: 0;
     margin-bottom: 30px;
 }
@@ -1155,30 +898,30 @@ ul {
     line-height: 1.6;
     margin-bottom: 10px;
     position: relative;
-    padding-left: 30px; /* Space for custom icon/bullet */
+    padding-left: 30px;
     color: #444;
 }
 
 .service-detail-text-content ul li::before {
-    content: '✓'; /* Checkmark icon, or use a font icon */
-    color: #ff5722; /* Your brand orange for the checkmark */
+    content: '✓';
+    color: #ff5722;
     font-weight: bold;
     position: absolute;
     left: 0;
     top: 0;
 }
 
-/* --- Image Styling within Service Detail Blocks --- */
-.service-detail-image-content .image-wrapper {
+/* --- Image Styling within Service Blocks --- */
+.service-image-content .image-wrapper {
     position: relative;
     width: 100%;
-    padding-top: 65%; /* Aspect ratio */
+    padding-top: 65%;
     overflow: hidden;
     border-radius: 12px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
 }
 
-.service-detail-image {
+.service-image {
     position: absolute;
     top: 0;
     left: 0;
@@ -1198,14 +941,14 @@ ul {
     }
 
     .service-detail-block {
-        flex-direction: column; /* Stack columns on smaller screens */
+        flex-direction: column;
         text-align: center;
         gap: 30px;
         margin-bottom: 60px;
     }
 
     .service-detail-block.reverse-layout {
-        flex-direction: column; /* Ensure stacked order */
+        flex-direction: column;
     }
 
     .service-detail-image-content,
@@ -1225,9 +968,9 @@ ul {
         text-align: center;
     }
     .service-detail-text-content ul {
-        margin: 0 auto 20px auto; /* Center list */
-        text-align: left; /* Keep text aligned left within list item */
-        max-width: 400px; /* Constrain list width for readability */
+        margin: 0 auto 20px auto;
+        text-align: left;
+        max-width: 400px;
     }
 }
 
@@ -1248,14 +991,12 @@ ul {
     }
     .main-services-detail-section .section-title {
         font-size: 2.2em;
-        margin-bottom: 40px;
     }
     .main-services-detail-section .intro-paragraph {
         font-size: 1em;
     }
     .service-detail-block {
         margin-bottom: 40px;
-        gap: 20px;
     }
     .service-detail-title {
         font-size: 1.5em;
@@ -1268,44 +1009,14 @@ ul {
     }
 }
 
-
-.page-hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.2); /* Slight overlay */
-    z-index: 0;
-}
-
-.page-hero-section h1 {
-    position: relative;
-    z-index: 1;
-    font-size: 3.5em;
-    margin-bottom: 10px;
-    line-height: 1.1;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.page-hero-section p {
-    position: relative;
-    z-index: 1;
-    font-size: 1.2em;
-    max-width: 700px;
-    margin: 0 auto;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-}
-
 /* --- Main Partners Detail Section --- */
 .main-partners-detail-section {
     padding: 80px 0;
-    background-color: #f8f8f8; /* Light background */
+    background-color: #f8f8f8;
     color: #333;
 }
 
 .main-partners-detail-section .container {
-    /* Inherits max-width, margin from global .container */
     padding: 20px 25px;
 }
 
@@ -1318,14 +1029,13 @@ ul {
     text-align: center;
 }
 
-/* --- Partner Category Block --- */
 .partner-category-block {
-    margin-bottom: 70px; /* Space between partner categories */
+    margin-bottom: 70px;
 }
 
 .category-title {
     font-size: 2.5em;
-    color: #0f3e5f; /* Dark brand blue */
+    color: #0f3e5f;
     margin-bottom: 15px;
     text-align: center;
     position: relative;
@@ -1340,7 +1050,7 @@ ul {
     bottom: 0;
     width: 80px;
     height: 3px;
-    background-color: #007bff; /* Light brand blue underline */
+    background-color: #007bff;
 }
 
 .category-description {
@@ -1352,18 +1062,17 @@ ul {
     text-align: center;
 }
 
-/* --- Partner Grid --- */
 .partner-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid for partners */
-    gap: 30px; /* Space between partner cards */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 .partner-card {
     background-color: #fff;
     border-radius: 12px;
     padding: 25px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Lighter shadow */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1372,14 +1081,14 @@ ul {
 }
 
 .partner-card:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
+    transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .partner-logo-detail {
-    max-height: 80px; /* Max height for logos */
-    max-width: 80%; /* Ensure logos fit */
-    object-fit: contain; /* Maintain aspect ratio */
+    max-height: 80px;
+    max-width: 80%;
+    object-fit: contain;
     margin-bottom: 15px;
 }
 
@@ -1396,9 +1105,8 @@ ul {
     color: #777;
 }
 
-/* --- Final Call to Action for Partnerships --- */
 .partner-cta {
-    background-color: #007bff; /* Your light brand blue */
+    background-color: #007bff;
     color: #fff;
     padding: 50px 30px;
     border-radius: 12px;
@@ -1420,7 +1128,6 @@ ul {
     color: #e0e0e0;
 }
 
-/* --- Responsive Adjustments for Partnerships Page --- */
 @media (max-width: 992px) {
     .page-hero-section h1 {
         font-size: 2.5em;
@@ -1438,7 +1145,7 @@ ul {
     }
 
     .partner-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust grid columns */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 
     .partner-cta h3 {
@@ -1475,7 +1182,7 @@ ul {
     }
 
     .partner-grid {
-        grid-template-columns: 1fr; /* Stack cards on mobile */
+        grid-template-columns: 1fr;
     }
 
     .partner-card {
@@ -1493,11 +1200,9 @@ ul {
     }
 }
 
-/* --- About Us Page Hero Section (Similar to Services Page Hero) --- */
-/* You might want a slightly different background image or color for this hero if desired */
+/* --- About Us Page Hero Section --- */
 .page-hero-section.about-hero {
-    background-color: #0f3e5f; /* Or a different dark brand color */
-    /* background-image: url('path/to/about-hero-image.jpg'); */ /* Optional: specific background image */
+    background-color: #0f3e5f;
     background-size: cover;
     background-position: center;
 }
@@ -1505,7 +1210,7 @@ ul {
 /* --- Our Story / Introduction Section --- */
 .our-story-section {
     padding: 80px 0;
-    background-color: #fff; /* White background */
+    background-color: #fff;
     color: #333;
 }
 
@@ -1516,17 +1221,17 @@ ul {
 .story-content-grid {
     display: flex;
     align-items: center;
-    gap: 60px; /* Space between text and image */
+    gap: 60px;
 }
 
 .story-text {
     flex: 1;
-    max-width: 55%; /* Text takes a bit more width */
+    max-width: 55%;
 }
 
-.section-title-alt { /* For a slightly different title style if desired */
+.section-title-alt {
     font-size: 2.5em;
-    color: #0f3e5f; /* Dark brand blue */
+    color: #0f3e5f;
     margin-bottom: 20px;
     line-height: 1.2;
 }
@@ -1540,15 +1245,15 @@ ul {
 
 .story-image {
     flex: 1;
-    max-width: 45%; /* Image takes less width */
+    max-width: 45%;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-    height: auto; /* Ensure image scales */
-    display: block; /* Remove extra space below image */
+    height: auto;
+    display: block;
 }
 
-.story-main-image { /* For the actual image inside .story-image */
+.story-main-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -1558,18 +1263,18 @@ ul {
 /* --- Our Team Section --- */
 .our-team-section {
     padding: 80px 0;
-    background-color: #f0f0f0; /* Light grey background */
+    background-color: #f0f0f0;
     color: #333;
     text-align: center;
 }
 
-.our-team-section .section-title { /* Reuse existing section-title style */
+.our-team-section .section-title {
     font-size: 2.8em;
     color: #0f3e5f;
     margin-bottom: 20px;
 }
 
-.our-team-section .intro-paragraph { /* Reuse existing intro-paragraph style */
+.our-team-section .intro-paragraph {
     font-size: 1.1em;
     max-width: 800px;
     margin: 0 auto 60px auto;
@@ -1579,7 +1284,7 @@ ul {
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
@@ -1592,17 +1297,17 @@ ul {
 }
 
 .member-photo {
-    width: 150px; /* Size of team member photo */
+    width: 150px;
     height: 150px;
-    border-radius: 50%; /* Circular photo */
+    border-radius: 50%;
     object-fit: cover;
     margin: 0 auto 15px auto;
-    border: 3px solid #007bff; /* Accent border */
+    border: 3px solid #007bff;
 }
 
 .member-name {
     font-size: 1.4em;
-    color: #0f3e5f; /* Dark brand blue */
+    color: #0f3e5f;
     margin-bottom: 5px;
 }
 
@@ -1616,59 +1321,50 @@ ul {
     font-size: 0.9em;
     line-height: 1.6;
     color: #666;
+    margin-bottom: 20px;
 }
 
-/* --- Responsive Adjustments for About Us Page --- */
-@media (max-width: 992px) {
-    /* Story Section */
-    .story-content-grid {
-        flex-direction: column;
-        gap: 30px;
-    }
-    .story-text, .story-image {
-        max-width: 100%;
-        text-align: center;
-    }
-    .story-main-image {
-        margin: 0 auto;
-    }
-    .section-title-alt {
-        text-align: center;
-    }
-    /* Team Section */
-    .team-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust columns for smaller desktop */
-    }
+.member-skills {
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    width: 100%;
+    text-align: left;
 }
 
-@media (max-width: 768px) {
-    /* Hero Section (inherits from page-hero-section) */
-    .page-hero-section.about-hero {
-        height: 30vh;
-    }
-    /* Story Section */
-    .our-story-section {
-        padding: 60px 0;
-    }
-    .section-title-alt {
-        font-size: 2em;
-    }
-    .story-text p {
-        font-size: 0.95em;
-    }
-    /* Team Section */
-    .our-team-section {
-        padding: 60px 0;
-    }
-    .team-grid {
-        grid-template-columns: 1fr; /* Stack on mobile */
-    }
+.member-skills h4 {
+    font-size: 0.95em;
+    color: #0f3e5f;
+    margin-bottom: 10px;
+    font-weight: 700;
 }
 
-/* --- Contact Page Hero Section (Similar to Services Page Hero) --- */
+.member-skills ul {
+    list-style: none;
+    padding: 0;
+}
+
+.member-skills ul li {
+    font-size: 0.85em;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 5px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.member-skills ul li::before {
+    content: '•';
+    color: #ff5722;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* --- Contact Page Hero Section --- */
 .page-hero-section.contact-hero {
-    background-color: #0f3e5f; /* Or a different dark brand color */
-    /* background-image: url('path/to/contact-hero-image.jpg'); */ /* Optional: specific background image */
+    background-color: #0f3e5f;
     background-size: cover;
     background-position: center;
 }
@@ -1676,7 +1372,7 @@ ul {
 /* --- Main Contact Content Section --- */
 .contact-details-section {
     padding: 80px 0;
-    background-color: #f8f8f8; /* Light background */
+    background-color: #f8f8f8;
     color: #333;
     text-align: center;
 }
@@ -1685,34 +1381,33 @@ ul {
     padding: 20px 25px;
 }
 
-/* --- Contact Grid Layout --- */
 .contact-grid {
     display: flex;
-    gap: 60px; /* Space between columns */
+    gap: 60px;
     justify-content: center;
-    align-items: flex-start; /* Align items to the top */
+    align-items: flex-start;
     margin-top: 60px;
-    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+    flex-wrap: wrap;
 }
 
 .contact-form-column,
 .direct-contact-column {
-    flex: 1; /* Both columns take equal space */
-    min-width: 300px; /* Minimum width before wrapping */
-    max-width: 500px; /* Max width for readability */
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
     background-color: #fff;
     padding: 35px;
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    text-align: left; /* Reset text alignment inside columns */
+    text-align: left;
 }
 
 .contact-form-column h3,
 .direct-contact-column h3 {
     font-size: 1.8em;
-    color: #0f3e5f; /* Dark brand blue */
+    color: #0f3e5f;
     margin-bottom: 25px;
-    text-align: center; /* Center heading */
+    text-align: center;
 }
 
 /* --- Contact Form Styling --- */
@@ -1721,7 +1416,7 @@ ul {
 }
 
 .contact-form label {
-    display: block; /* Label on its own line */
+    display: block;
     font-size: 0.95em;
     color: #555;
     margin-bottom: 8px;
@@ -1736,29 +1431,29 @@ ul {
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1em;
-    font-family: 'DM Sans', sans-serif; /* Ensure font is applied to form fields */
+    font-family: 'DM Sans', sans-serif;
     color: #333;
-    background-color: #f0f0f0; /* Light background for fields */
+    background-color: #f0f0f0;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-form input[type="text"]:focus,
 .contact-form input[type="email"]:focus,
 .contact-form textarea:focus {
-    border-color: #007bff; /* Highlight border on focus */
+    border-color: #007bff;
     outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2); /* Subtle blue glow */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
 }
 
 .contact-form textarea {
-    resize: vertical; /* Allow vertical resizing */
+    resize: vertical;
 }
 
 .contact-form .btn-filled {
-    width: 100%; /* Full width button */
+    width: 100%;
     padding: 15px;
     font-size: 1.1em;
-    margin-top: 10px; /* Space above button */
+    margin-top: 10px;
     cursor: pointer;
 }
 
@@ -1771,11 +1466,11 @@ ul {
     color: #555;
 }
 
-.contact-info-item i { /* For icon placeholders like <i class="icon-phone"></i> */
+.contact-info-item i {
     font-size: 1.5em;
-    color: #007bff; /* Light brand blue for icons */
+    color: #007bff;
     margin-right: 15px;
-    width: 30px; /* Ensure consistent icon sizing */
+    width: 30px;
     text-align: center;
 }
 
@@ -1790,13 +1485,13 @@ ul {
 }
 
 .contact-social-links h3 {
-    text-align: left; /* Align social heading */
+    text-align: left;
     margin-top: 30px;
     margin-bottom: 15px;
 }
 
 .contact-social-links .social-icons {
-    justify-content: flex-start; /* Align social icons to the left */
+    justify-content: flex-start;
 }
 
 .contact-map {
@@ -1818,27 +1513,27 @@ ul {
     /* Hero section inherits responsive styles */
 
     .contact-grid {
-        flex-direction: column; /* Stack columns on smaller screens */
+        flex-direction: column;
         gap: 30px;
     }
     .contact-form-column,
     .direct-contact-column {
-        max-width: 100%; /* Take full width */
-        margin: 0 auto; /* Center column */
+        max-width: 100%;
+        margin: 0 auto;
     }
     .contact-form-column h3,
     .direct-contact-column h3 {
         text-align: center;
     }
     .contact-info-item {
-        justify-content: center; /* Center contact info items */
+        justify-content: center;
     }
     .contact-social-links h3,
     .contact-map h3 {
         text-align: center;
     }
     .contact-social-links .social-icons {
-        justify-content: center; /* Center social icons when stacked */
+        justify-content: center;
     }
 }
 
@@ -1864,9 +1559,7 @@ ul {
 
 /* --- Legal Pages Hero Section --- */
 .page-hero-section.legal-hero {
-    background-color: #0f3e5f; /* Your dark brand blue */
-    /* You can add a subtle background image here if desired */
-    /* background-image: url('path/to/legal-hero-image.jpg'); */
+    background-color: #0f3e5f;
     background-size: cover;
     background-position: center;
 }
@@ -1874,8 +1567,8 @@ ul {
 /* --- Legal Content Section --- */
 .legal-content-section {
     padding: 80px 0;
-    background-color: #fff; /* White background */
-    color: #333; /* Dark text */
+    background-color: #fff;
+    color: #333;
 }
 
 .legal-content-section .container {
@@ -1891,21 +1584,21 @@ ul {
 
 .legal-content-section h3 {
     font-size: 1.8em;
-    color: #0f3e5f; /* Dark brand blue */
+    color: #0f3e5f;
     margin-top: 40px;
     margin-bottom: 15px;
     position: relative;
     padding-bottom: 5px;
 }
 
-.legal-content-section h3::after { /* Small underline for headings */
+.legal-content-section h3::after {
     content: '';
     position: absolute;
     left: 0;
     bottom: 0;
     width: 50px;
     height: 2px;
-    background-color: #007bff; /* Light brand blue */
+    background-color: #007bff;
 }
 
 .legal-content-section p {
@@ -1933,15 +1626,24 @@ ul {
 }
 
 .legal-content-section a {
-    color: #007bff; /* Link color */
+    color: #007bff;
     text-decoration: underline;
 }
 
 .legal-content-section a:hover {
-    color: #0056b3; /* Darker blue on hover */
+    color: #0056b3;
 }
 
 /* --- Responsive Adjustments for Legal Pages --- */
+@media (max-width: 992px) { /* Added for intermediate tablets */
+    .legal-content-section h3 {
+        text-align: center;
+    }
+    .legal-content-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
 @media (max-width: 768px) {
     /* Hero section inherits responsive styles */
     .legal-content-section {
@@ -1954,7 +1656,6 @@ ul {
     .legal-content-section h3 {
         font-size: 1.5em;
         margin-top: 30px;
-        text-align: center; /* Center heading on mobile */
     }
     .legal-content-section h3::after {
         left: 50%;
@@ -1963,5 +1664,155 @@ ul {
     .legal-content-section p,
     .legal-content-section ul li {
         font-size: 0.95em;
+    }
+}
+
+/* --- Services Page Hero Section (Reusing .page-hero-section from global styles) --- */
+/* Specific background or overlay if desired for services-hero */
+.page-hero-section.services-hero {
+    /* You can add a specific background image here */
+    /* background-image: url('path/to/services-hero-bg.jpg'); */
+    /* background-color: #0f3e5f; /* Example: Dark blue background */
+background-size: cover;
+    background-position: center;
+}
+
+/* --- Services Overview Section (New Design) --- */
+.services-overview-section {
+    padding: 80px 0;
+    background-color: #f8f8f8; /* Light background for contrast */
+    color: #333; /* Dark text */
+    text-align: center;
+}
+
+.services-overview-section .container {
+    padding: 20px 25px;
+}
+
+.services-overview-section .section-title { /* Reuses existing section-title style */
+    font-size: 2.8em;
+    color: #0f3e5f;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.services-overview-section .intro-paragraph { /* Reuses existing intro-paragraph style */
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    line-height: 1.8;
+    color: #555;
+}
+
+.service-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 columns on desktop, responsive */
+    gap: 30px; /* Space between cards */
+}
+
+.service-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes button to bottom */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px); /* Lift effect on hover */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.service-icon {
+    font-size: 3em; /* Size of the icon */
+    color: #007bff; /* Your light brand blue for icons */
+    margin-bottom: 20px;
+}
+
+.service-card-title {
+    font-size: 1.6em;
+    color: #0f3e5f; /* Your dark brand blue */
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.service-card p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 25px; /* Space below description */
+}
+
+.service-card ul {
+    list-style: none;
+    padding-left: 0;
+    text-align: left; /* Align list items to left */
+    margin-bottom: 30px; /* Space below list */
+}
+
+.service-card ul li {
+    font-size: 0.9em;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 25px; /* Space for checkmark */
+    color: #444;
+}
+
+.service-card ul li .fa-check-circle { /* Font Awesome checkmark icon */
+    color: #ff5722; /* Your brand orange */
+    position: absolute;
+    left: 0;
+    top: 2px; /* Adjust vertical alignment */
+    font-size: 0.9em;
+}
+
+.service-card-cta { /* Button for each service card */
+    margin-top: auto; /* Pushes button to bottom of card */
+    width: 100%; /* Full width button */
+    padding: 12px 20px;
+    font-size: 0.95em;
+    border-radius: 8px;
+}
+
+/* --- Responsive Adjustments for Services Overview Section --- */
+@media (max-width: 992px) {
+    .service-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 columns on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .services-overview-section {
+        padding: 60px 0;
+    }
+    .services-overview-section .section-title {
+        font-size: 2.2em;
+    }
+    .services-overview-section .intro-paragraph {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+    .service-cards-grid {
+        grid-template-columns: 1fr; /* Stack cards on mobile */
+    }
+    .service-card {
+        padding: 30px;
+    }
+    .service-icon {
+        font-size: 2.5em;
+    }
+    .service-card-title {
+        font-size: 1.4em;
+    }
+    .service-card p {
+        font-size: 0.9em;
+    }
+    .service-card ul li {
+        font-size: 0.85em;
     }
 }
