@@ -1268,20 +1268,6 @@ ul {
     }
 }
 
-/* --- Partners Page Hero Section (Similar to Services Page Hero) --- */
-.page-hero-section {
-    position: relative;
-    width: 100vw;
-    height: 40vh; /* Shorter hero for internal pages */
-    background-color: #0f3e5f; /* Your dark brand blue */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-    color: #fff;
-    padding-top: 60px; /* Space for fixed header */
-}
 
 .page-hero-overlay {
     position: absolute;
