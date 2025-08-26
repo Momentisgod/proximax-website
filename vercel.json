@@ -1,0 +1,28 @@
+{
+  "rewrites": [
+    {
+      "source": "/service",
+      "destination": "/service.html"
+    },
+    {
+      "source": "/partner",
+      "destination": "/partner.html"
+    },
+    {
+      "source": "/aboutus",
+      "destination": "/aboutus.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy.html"
+    },
+    {
+      "source": "/terms-of-service",
+      "destination": "/terms-of-service.html"
+    }
+  ]
+}
