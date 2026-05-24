@@ -1,0 +1,63 @@
+@use '@carbon/react/scss/spacing';
+
+.site-footer {
+  background-color: var(--cds-background);
+  border-top: 1px solid var(--cds-border-subtle);
+  padding-top: spacing.$spacing-09;
+  padding-bottom: spacing.$spacing-05;
+
+  .footer-section {
+    margin-bottom: spacing.$spacing-07;
+  }
+
+  .footer-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: spacing.$spacing-04;
+    color: var(--cds-text-primary);
+  }
+
+  .footer-heading {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: spacing.$spacing-04;
+    color: var(--cds-text-primary);
+  }
+
+  .footer-desc, .footer-text {
+    margin-bottom: spacing.$spacing-03;
+    color: var(--cds-text-secondary);
+    line-height: 1.5;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: spacing.$spacing-03;
+    }
+  }
+
+  .footer-socials {
+    margin-top: spacing.$spacing-06;
+    
+    .social-icon {
+      margin-right: spacing.$spacing-04;
+      fill: var(--cds-link-primary);
+      &:hover {
+        fill: var(--cds-link-primary-hover);
+      }
+    }
+  }
+
+  .footer-bottom {
+    margin-top: spacing.$spacing-07;
+    padding-top: spacing.$spacing-05;
+    border-top: 1px solid var(--cds-border-subtle);
+    color: var(--cds-text-secondary);
+    font-size: 0.875rem;
+    text-align: center;
+  }
+}
